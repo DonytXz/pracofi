@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Pattern2 from "../assets/img/pattern2.png";
 import {
   Step1,
@@ -8,10 +8,10 @@ import {
   // StepIndicator,
 } from "../components/scheduleBooking/";
 import { getToken, RegisterBooking } from "../services/";
-import { useHistory } from "react-router-dom";
 import { notPresentToken } from "../helpers";
 
 const ScheduleBooking = () => {
+  const history = useHistory();
   const [notEmty, setNotEmty] = useState(false);
   const [date, setDate] = useState("");
   const [dateTime, setDateTime] = useState("");
@@ -24,7 +24,6 @@ const ScheduleBooking = () => {
   const [text, setTxt] = useState("");
   const [txt, setText] = useState("");
 
-  const history = useHistory();
   // console.log(userId);
 
   //stepData logs
@@ -50,10 +49,15 @@ const ScheduleBooking = () => {
       "rfcdepruebaxD2"
     )
       .then((res) => {
-        // console.log(res);
+        console.log(res);
+        if(res.status === 201) {
+          history.push("/bookings");
+        }else {
+          history.push("/");
+        }
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
       });
   };
 

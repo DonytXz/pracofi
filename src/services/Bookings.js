@@ -26,9 +26,9 @@ export const RegisterBooking = (usuario, motivo, fecha_cita, hora, area, rfc) =>
       //   if (res.status === 200) {
       //     history.push("/login");
       //   }
-      return res.data;
+      return res;
     })
     .catch((error) => {
-      // console.log(error);
+      console.log(error);
     });
 };
