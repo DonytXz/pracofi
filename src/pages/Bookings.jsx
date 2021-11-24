@@ -7,6 +7,7 @@ import { getToken, getBookings } from "../services/";
 import { useHistory } from "react-router-dom";
 import { notPresentToken } from "../helpers";
 
+
 const Bookings = () => {
   const history = useHistory();
   const [bookings, setBookings] = useState([]);
@@ -53,7 +54,7 @@ const Bookings = () => {
 
   return (
     <>
-      <div className="w-full h-full">
+      <div id="pdf" className="w-full h-full">
         <HeaderUser />
         <GeneratePDF />
         <div className="flex flex-col w-10/12 m-auto">
