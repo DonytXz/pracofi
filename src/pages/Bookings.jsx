@@ -37,8 +37,8 @@ const Bookings = () => {
   useEffect(() => {
     getBookings()
       .then((res) => {
-        // console.log(res);
-        setBookings(res.data.result)
+        console.log(res);
+        setBookings(res.data)
       })
       .catch((error) => {
         // console.log(error);
