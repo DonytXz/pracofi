@@ -37,7 +37,7 @@ const ScheduleBooking = () => {
   // console.log(isOnZMG, " Step3 Data");
 
   const senBooking = () => {
-    RegisterBooking("nombrePruebaHardcodeado", "apellido igual de hardcodeado", topic, date , "areadepruebaigual", "rfcdepruebaxD")
+    RegisterBooking("nombrePruebaHardcodeado", "apellido igual de hardcodeado", topic, date , dateTime, "areadepruebaigual", "rfcdepruebaxD")
       .then((res) => {
         console.log(res);
       })

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Booking } from "./";
 import moment from "moment";
-import { BookignsList, GeneratePDF } from "../components/bokings/";
-import { HeaderUser } from "../components/global/";
+import { BookignsList } from "../components/bokings/";
+import { HeaderUser, GeneratePDF } from "../components/global/";
 import { getToken, getBookings } from "../services/";
 import { useHistory } from "react-router-dom";
 import { notPresentToken } from "../helpers";
