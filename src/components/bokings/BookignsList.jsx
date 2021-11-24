@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Booking } from "./";
-import moment from "moment";
+
 
 const BookignsList = (props) => {
   const { bookings } = props;
-  // console.log(bookings);
+  console.log(bookings);
 
   return (
     <>
