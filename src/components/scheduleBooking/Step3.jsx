@@ -44,13 +44,13 @@ const Step3 = (props) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <label class="inline-flex items-center">
-              <input type="checkbox" class="" checked />
-              <span class="ml-2">Apruebo que se envie mi informacion.</span>
+            <label className="inline-flex items-center">
+              <input type="checkbox" className="" />
+              <span className="ml-2">Apruebo que se envie mi informacion.</span>
             </label>
-            <label class="inline-flex items-center">
-              <input type="checkbox" class="" checked />
-              <span class="ml-2">
+            <label className="inline-flex items-center">
+              <input type="checkbox" className="" />
+              <span className="ml-2">
                 Estoy interezado en continuar con el proceso.
               </span>
             </label>

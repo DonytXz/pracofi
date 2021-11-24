@@ -41,8 +41,8 @@ const ScheduleBooking = () => {
   const senBooking = () => {
     RegisterBooking(
       userId,
-      "nombrePruebaHardcodeado2",
-      "apellido igual de hardcodeado2",
+      // "nombrePruebaHardcodeado2",
+      // "apellido igual de hardcodeado2",
       topic,
       date,
       dateTime,

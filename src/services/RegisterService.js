@@ -10,7 +10,7 @@ export const RegisterService = (nombre, email, password) => {
       password,
     })
     .then((res) => {
-      //   console.log(res);
+        console.log(res);
       // const name = res.data.usuario.name;
       // const role = res.data.usuario.role;
       // const name = res.data.usuario.name;
@@ -22,6 +22,6 @@ export const RegisterService = (nombre, email, password) => {
       return res.data;
     })
     .catch((error) => {
-      // console.log(error);
+      console.log(error);
     });
 };
