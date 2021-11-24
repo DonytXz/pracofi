@@ -5,10 +5,11 @@ export const getBookings = () => {
     return response;
 }
 
-export const RegisterBooking = (nombre, apellidos, motivo, fecha_cita,hora, area, rfc) => {
+export const RegisterBooking = (id, nombre, apellidos, motivo, fecha_cita,hora, area, rfc) => {
   // const history = useHistory();
   return axios
     .post("http://localhost:4201/registro_cita", {
+      id,
       nombre,
       apellidos,
       motivo,

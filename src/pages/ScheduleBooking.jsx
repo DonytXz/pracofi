@@ -19,11 +19,13 @@ const ScheduleBooking = () => {
   const [isOnZMG, setIsOnZMG] = useState(false);
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
+  const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
 
   const [text, setTxt] = useState("");
   const [txt, setText] = useState("");
 
   const history = useHistory();
+  // console.log(userId);
 
   //stepData logs
 
@@ -37,12 +39,21 @@ const ScheduleBooking = () => {
   // console.log(isOnZMG, " Step3 Data");
 
   const senBooking = () => {
-    RegisterBooking("nombrePruebaHardcodeado", "apellido igual de hardcodeado", topic, date , dateTime, "areadepruebaigual", "rfcdepruebaxD")
+    RegisterBooking(
+      userId,
+      "nombrePruebaHardcodeado2",
+      "apellido igual de hardcodeado2",
+      topic,
+      date,
+      dateTime,
+      "areadepruebaigual2",
+      "rfcdepruebaxD2"
+    )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
