@@ -17,7 +17,9 @@ const ScheduleBooking = () => {
   const [date, setDate] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [topic, setTopic] = useState("");
-  const [isOnZMG, setIsOnZMG] = useState(false);
+  // const [isOnZMG, setIsOnZMG] = useState(false);
+  const [area, setArea] = useState("");
+  const [rfc, setRfc] = useState("");
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
@@ -39,7 +41,7 @@ const ScheduleBooking = () => {
   // console.log(text, " Step2 Data");
 
   //step3Data
-  // console.log(isOnZMG, " Step3 Data");
+  console.log(area, rfc, " Step3 Data");
 
   const senBooking = () => {
     // let concatDate = moment(date);
@@ -52,8 +54,8 @@ const ScheduleBooking = () => {
       // concatDate,
       date,
       dateTime,
-      "areadepruebaigual2",
-      "rfcdepruebaxD2"
+      area,
+      rfc
     )
       .then((res) => {
         console.log(res);
@@ -141,7 +143,7 @@ const ScheduleBooking = () => {
             />
           )}
           {step2 && !step3 && <Step2 text={text} setTxt={setTxt} />}
-          {step3 && <Step3 setIsOnZMG={setIsOnZMG} />}
+          {step3 && <Step3 setArea={setArea} setRfc={setRfc} />}
           <div className="flex flex-row mt-auto p-6 ">
             <div className=" mr-auto ">
               {/* <button
