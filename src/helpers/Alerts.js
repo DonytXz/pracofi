@@ -9,6 +9,9 @@ export const notPresentToken = () => {
   });
 };
 export const alerForm = () => {
-  Swal.fire('Favor de llenar todos los campos')
+  Swal.fire("Favor de llenar todos los campos");
 };
 
+export const success = () => {
+  Swal.fire("Hecho!", "Actualizado!", "success");
+};

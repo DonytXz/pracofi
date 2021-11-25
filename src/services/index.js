@@ -1,6 +1,13 @@
 import { login, getToken, logout } from "./AutService";
 import { RegisterService } from "./RegisterService";
-import { getBookings, RegisterBooking, getBookingsById, topics } from "./Bookings";
+import {
+  getBookings,
+  RegisterBooking,
+  getBookingsById,
+  topics,
+  UpdateBooking,
+  clear,
+} from "./Bookings";
 
 export {
   login,
@@ -10,5 +17,7 @@ export {
   getBookings,
   RegisterBooking,
   getBookingsById,
-  topics
+  UpdateBooking,
+  topics,
+  clear,
 };
