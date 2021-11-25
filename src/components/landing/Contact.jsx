@@ -1,20 +1,22 @@
 import React from "react";
 import { useForm, ValidationError } from '@formspree/react';
 const Contact = () => {
-  
+  function ContactForm() {
+    const [state, handleSubmit] = useForm("xknywojb");
+    if (state.succeeded) {
+        return <p>Thanks for joining!</p>;
+    }
+  }
   return (
     <section id="contact" class="w-full mx-auto blue pt-12 bg-black">
       <div class="w-full h-full flex flex-col lg:flex-row">
         <div class="w-full lg:w-1/2  lg:relative p-10">
           <div class="w-full lg:w-2/3 lg:relative lg:float-right ">
             <h2 class="my-2   font-semibold w-full text-2xl lg:text-5xl text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              En PRACOFI nos interesa lo que piensa!!!!!!
             </h2>
-            <h3 class="hover:opacity-50 my-2 text-white  ">
-              <button>{"ENVIANOS TUS DATOS ->"}</button>
-            </h3>
             <p class="text-white   font-normal">
-              <strong class="  font-semibold">Credifan</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nemo tenetur eligendi dignissimos dolorem distinctio, minima quasi eaque non consequuntur?
+              <strong class="  font-semibold"> Contacte con nosotros ahora mismo</strong>
             </p>
           </div>
         </div>
@@ -31,21 +33,29 @@ const Contact = () => {
               </label>
               <input
                 class="font-gray-form border-2 rounded bg-gray-200 px-4 py-2"
-                placeholder="Escriba aqui"
+                placeholder="Escriba aqui su nombre"
                 type="text"
-                name="nombre"
-                id="nombre"
+                name="Nombre"
+                id="Nombre"
+                required
               />
+              
               <label class="font-gray-form mt-4" htmlFor="email">
               Correo electronico
               </label>
               <input
                class="font-gray-form border-2 rounded bg-gray-200 px-4 py-2"
-               placeholder="Escriba aqui here"
+               placeholder="Escriba aqui su correo"
                 id="email"
               type="email" 
                 name="email"
+                required
                />
+               <ValidationError 
+              prefix="Email" 
+              field="email"
+              errors={"001".errors}
+         />
               <label class="font-gray-form mt-4" for="">
                 Teléfono
               </label>
@@ -55,7 +65,9 @@ const Contact = () => {
                 type="tel"
                 name="telefono"
                 id="telefono"
+required
               />
+          
               <button
                 type="submit"
                 onclick="submitted()"
