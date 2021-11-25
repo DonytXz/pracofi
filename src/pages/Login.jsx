@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HeaderForms } from "../components/global/";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/AutService";
+import { alerForm } from "../helpers";
 
 const Login = () => {
   // const [sendFlag, setSenFlag] = useState(false);
@@ -15,6 +16,11 @@ const Login = () => {
   const submit = () => {
     // console.log("click");
 
+    if (
+      email != "" ||
+      pasword
+    ) {
+
     login(email, pasword)
       .then((res) => {
         // console.log(res);
@@ -26,6 +32,11 @@ const Login = () => {
         console.log(error);
       });
     // setSenFlag(true);
+  }else{
+    alerForm();
+  }
+  //comentario
+  //comentario
   };
 
   return (
