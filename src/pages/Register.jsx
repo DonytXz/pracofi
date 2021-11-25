@@ -123,7 +123,7 @@ const Register = () => {
                 onChange={(e) => setPaswordConfirm(e.target.value)}
               />
             </div>
-            <p class="text-white text-xs italic">Confirma la contraseña</p>
+            <p class="text-white text-xs italic"></p>
             <div class="flex items-center justify-between">
               <button
                 // to="/bookings"

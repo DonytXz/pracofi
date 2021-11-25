@@ -12,24 +12,14 @@ const About = () => {
           <div className="text-white my-auto px-8 flex flex-col">
             <img className="w-1/2 " src={BrandLogo} alt="" srcSet="" />
             <p className="my-4" class="text-blue-900 font-semibold">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptate, fuga non! Minus est quae quidem commodi esse nemo amet
-              alias.
+          
             </p>
-            <p className="my-4" class="text-blue-900 font-semibold">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde
-              dolorum odio cumque aperiam dolore veniam officiis deleniti! Id,
-              sit necessitatibus.
-            </p>
+      
             <ul className="list-disc" class="text-blue-900 font-semibold">
-              <li>Lorem ipsum dulor sit amet consectetur adipisicing elit.</li>
-              <li>Nam vitae ea, ipsum quo ducimus odit magnam?</li>
-              <li>Velit enim a labore, suscipit fugit fugiat. Officia!</li>
-              <li>
-                Provident cumque quos tempore nostrum, exercitationem suscipit
-                laboriosam.
-              </li>
-              <li>Fugiat minima ab ut dolorum excepturi dolores voluptas.</li>
+              <li className="text-center uppercase text-2xl text-blue-regular mb-2">Mision</li>
+              <li align="justify">Somos un grupo de personas profesionistas dedicadas a brindar servicios contables, fiscales y administrativos, comprometidos para proporcionar al sector empresarial un alto nivel de confianza, conocimiento y experiencia laboral.</li>
+              <li className="text-center uppercase text-2xl text-blue-regular mb-2">Vision</li>
+              <li align="justify">Permanecer en el sector empresarial como una organización líder, generando confianza, seguridad y proyecciones a largo plazo, además de ser reconocidos por nuestro compromiso, responsabilidad y formalidad en el área contable, fiscal y administrativa.</li>
             </ul>
             <button className="w-2/4 mx-auto my-4 uppercase p-6 bg-blue-regular text-white bg-black">
               registrate

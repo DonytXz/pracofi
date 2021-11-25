@@ -73,7 +73,6 @@ const Login = () => {
                 onChange={(e) => setPasword(e.target.value)}
               />
               <p class="text-white text-xs italic">
-                Porfavor elija una contraseña.
               </p>
             </div>
             <div class="flex items-center justify-between">
