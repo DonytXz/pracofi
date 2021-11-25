@@ -23,7 +23,7 @@ const Register = () => {
       lastName != "" ||
       email != "" ||
       pasword != "" ||
-      paswordConfirm
+      paswordConfirm != ""
     ) {
       RegisterService(name, email, pasword)
         .then((res) => {
