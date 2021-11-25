@@ -14,7 +14,7 @@ export const topics = () => {
   return response;
 };
 export const clear = (id) => {
-  const response = axios.delete(`http://localhost:4201/clear${id}`);
+  const response = axios.delete(`http://localhost:4201/citas/${id}`);
   return response;
 };
 
