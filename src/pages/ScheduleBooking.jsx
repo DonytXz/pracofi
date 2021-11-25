@@ -7,7 +7,7 @@ import {
   Step3,
   // StepIndicator,
 } from "../components/scheduleBooking/";
-import { getToken, RegisterBooking } from "../services/";
+import { getToken, RegisterBooking, topics } from "../services/";
 import { notPresentToken } from "../helpers";
 import moment from "moment";
 
@@ -21,6 +21,9 @@ const ScheduleBooking = () => {
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
+
+  const [loadingTopics, setLoadingTopics] = useState(true);
+  const [topicsData, setTopics] = useState([]);
 
   const [text, setTxt] = useState("");
   const [txt, setText] = useState("");
@@ -73,6 +76,23 @@ const ScheduleBooking = () => {
   }, [getToken()]);
 
   useEffect(() => {
+    topics()
+      .then((res) => {
+        console.log(res);
+        setTopics(res.data);
+        setLoadingTopics(false);
+        // if (res.status === 201) {
+        //   history.push("/bookings");
+        // } else {
+        //   history.push("/");
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
     setText(text);
   }, [text]);
   // console.log(text);
@@ -93,6 +113,7 @@ const ScheduleBooking = () => {
       setstep2(!step2);
     }
   };
+  // console.log(topicsData);
   return (
     <>
       <div className="lg:h-screen w-screen bg-blue-dark flex flex-row min-h-screen">
@@ -104,6 +125,8 @@ const ScheduleBooking = () => {
         <div className="text-white flex flex-col pt-6 w-full mx-4">
           {!step2 && (
             <Step1
+              loadingTopics={loadingTopics}
+              topicsData={topicsData}
               setDate={setDate}
               date={date}
               setDateTime={setDateTime}

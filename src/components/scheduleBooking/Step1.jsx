@@ -2,7 +2,15 @@ import React from "react";
 import { StepIndicator, DatePicker } from "./";
 
 const Step1 = (props) => {
-  const { date, setNotEmty, setDateTime, setDate, setTopic } = props;
+  const {
+    date,
+    setNotEmty,
+    setDateTime,
+    setDate,
+    setTopic,
+    loadingTopics,
+    topicsData,
+  } = props;
   return (
     <>
       <StepIndicator step={1} />
@@ -21,7 +29,8 @@ const Step1 = (props) => {
             setNotEmty={setNotEmty}
           />
           <div className="flex flex-col my-1">
-            <label className="block mx-auto mb-2">setTopic
+            <label className="block mx-auto mb-2">
+              setTopic
               <span className="text-white  font-semibold">
                 Motivo de consulta
               </span>
@@ -35,8 +44,18 @@ const Step1 = (props) => {
               onChange={(e) => setTopic(e.target.value)}
             >
               <option disabled>Seleccione</option>
-              <option>Opcion1</option>
-              <option>Opcion2</option>
+
+              {!loadingTopics &&
+                topicsData?.map((topic, index) => {
+                  // console.log(topic);
+                  return (
+                    <option key={index} value={topic.id}>
+                      {topic.motivo}
+                    </option>
+                  );
+                })}
+              {/* <option>Opcion1</option>
+              <option>Opcion2</option> */}
               {/* {loading ? (
                   <option>Cargando...</option>
                 ) : (

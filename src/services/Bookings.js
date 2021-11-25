@@ -9,6 +9,10 @@ export const getBookingsById = (id) => {
   const response = axios.get(`http://localhost:4201/cita/${id}`);
   return response;
 }
+export const topics = () => {
+  const response = axios.get("http://localhost:4201/motivos");
+  return response;
+}
 
 
 export const RegisterBooking = (usuario, motivo, fecha_cita, hora, area, rfc) => {
