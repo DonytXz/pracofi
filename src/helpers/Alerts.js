@@ -15,3 +15,21 @@ export const alerForm = () => {
 export const success = () => {
   Swal.fire("Hecho!", "Actualizado!", "success");
 };
+
+export const worngLogin = () => {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Datos incorrectos",
+    // footer: '<a href="">Why do I have this issue?</a>',
+  });
+};
+
+export const samePass = () => {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Verifique las contraseñas",
+    // footer: '<a href="">Why do I have this issue?</a>',
+  });
+};

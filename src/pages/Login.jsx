@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HeaderForms } from "../components/global/";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/AutService";
-import { alerForm } from "../helpers";
+import { alerForm, worngLogin } from "../helpers";
 
 const Login = () => {
   // const [sendFlag, setSenFlag] = useState(false);
@@ -22,6 +22,8 @@ const Login = () => {
           // console.log(res);
           if (res.ok) {
             history.push("/bookings");
+          }else if(!res) {
+            worngLogin();
           }
         })
         .catch((error) => {

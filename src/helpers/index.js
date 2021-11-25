@@ -1,3 +1,9 @@
-import { notPresentToken, alerForm, success } from "./Alerts";
+import {
+  notPresentToken,
+  alerForm,
+  success,
+  worngLogin,
+  samePass,
+} from "./Alerts";
 
-export { notPresentToken, alerForm, success };
+export { notPresentToken, alerForm, success, worngLogin, samePass };

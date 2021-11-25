@@ -3,7 +3,7 @@ import { HeaderForms } from "../components/global";
 // import { Link } from "react-router-dom";
 import { Link, useHistory } from "react-router-dom";
 import { RegisterService } from "../services";
-import { alerForm } from "../helpers";
+import { alerForm, samePass } from "../helpers";
 
 const Register = () => {
   // const [userName, setUserName] = useState("");
@@ -17,26 +17,29 @@ const Register = () => {
   // console.log(userName, name, lastName, email, pasword, paswordConfirm);
   const submit = () => {
     // console.log("click");
-
-    if (
-      name != "" &&
-      lastName != "" &&
-      email != "" &&
-      pasword != "" &&
-      paswordConfirm != ""
-    ) {
-      RegisterService(name, email, pasword)
-        .then((res) => {
-          // console.log(res);
-          if (res.ok) {
-            history.push("/login");
-          }
-        })
-        .catch((error) => {
-          // console.log(error);
-        });
-    } else {
-      alerForm();
+    if (pasword === paswordConfirm) {
+      if (
+        name != "" &&
+        lastName != "" &&
+        email != "" &&
+        pasword != "" &&
+        paswordConfirm != ""
+      ) {
+        RegisterService(name, email, pasword)
+          .then((res) => {
+            // console.log(res);
+            if (res.ok) {
+              history.push("/login");
+            }
+          })
+          .catch((error) => {
+            // console.log(error);
+          });
+      } else {
+        alerForm();
+      }
+    }else{
+      samePass();
     }
     // history.push("/bookings");
     // setSenFlag(true);
