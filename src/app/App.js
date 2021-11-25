@@ -22,28 +22,28 @@ function App() {
           <Route exact path="/">
             <Landing />
           </Route>
-          <Route exact path="/login">
+          <Route path="/login">
             <Login />
           </Route>
-          <Route exact path="/register">
+          <Route path="/register">
             <Register />
           </Route>
-          <Route exact path="/scheduleBooking">
+          <Route path="/scheduleBooking">
             <ScheduleBooking />
           </Route>
-          <Route exact path="/bookings">
+          <Route path="/bookings">
             <Bookings />
           </Route>
-          <Route exact path="/profile">
+          <Route path="/profile">
             <Profile />
           </Route>
-          <Route  path="/bookingDetails/:id">
+          <Route path="/bookingDetails/:id">
             <BookingDetail />
           </Route>
-          <Route exact path="/bookingDetails_acountMan">
+          <Route path="/bookingDetails_acountMan">
             <AcountManBookingDetail />
           </Route>
-          <Route exact path="/registerAcoutnMan">
+          <Route path="/registerAcoutnMan">
             <RegisterAcoutnMan />
           </Route>
         </Switch>

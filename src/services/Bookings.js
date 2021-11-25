@@ -6,7 +6,7 @@ export const getBookings = () => {
 }
 
 export const getBookingsById = (id) => {
-  const response = axios.get(`http://localhost:4201/mostrar_citas/${id}`);
+  const response = axios.get(`http://localhost:4201/cita/${id}`);
   return response;
 }
 

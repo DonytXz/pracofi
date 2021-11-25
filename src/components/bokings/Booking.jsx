@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { getBookingsById } from "../../services";
 
 const Booking = (props) => {
   const { booking } = props;
@@ -8,8 +9,8 @@ const Booking = (props) => {
     <>
       <Link
         // to={{
-        //   pathname: `/bookingDetails`,
-        //   id: booking._id
+        //   pathname: "/bookingDetails",
+        //   state: { id: booking._id },
         // }}
         to={`/bookingDetails/${booking._id}`}
       >
