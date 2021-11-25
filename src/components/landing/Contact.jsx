@@ -13,7 +13,7 @@ const Contact = () => {
         <div class="w-full lg:w-1/2  lg:relative p-10">
           <div class="w-full lg:w-2/3 lg:relative lg:float-right ">
             <h2 class="my-2   font-semibold w-full text-2xl lg:text-5xl text-white text-center">
-            En Pracofi nos interesa lo que piensa
+            En PRACOFI nos interesa lo que piensa
             </h2>
             <p class="text-white   font-normal">
               <strong class="font-semibold text-center" > Contacte con nosotros ahora mismo llenando este sencillo formulario </strong>
