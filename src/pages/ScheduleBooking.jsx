@@ -9,6 +9,7 @@ import {
 } from "../components/scheduleBooking/";
 import { getToken, RegisterBooking } from "../services/";
 import { notPresentToken } from "../helpers";
+import moment from "moment";
 
 const ScheduleBooking = () => {
   const history = useHistory();
@@ -38,11 +39,14 @@ const ScheduleBooking = () => {
   // console.log(isOnZMG, " Step3 Data");
 
   const senBooking = () => {
+    // let concatDate = moment(date);
+    // console.log(concatDate);
     RegisterBooking(
       userId,
+      topic,
       // "nombrePruebaHardcodeado2",
       // "apellido igual de hardcodeado2",
-      topic,
+      // concatDate,
       date,
       dateTime,
       "areadepruebaigual2",
@@ -50,9 +54,9 @@ const ScheduleBooking = () => {
     )
       .then((res) => {
         console.log(res);
-        if(res.status === 201) {
+        if (res.status === 201) {
           history.push("/bookings");
-        }else {
+        } else {
           history.push("/");
         }
       })
