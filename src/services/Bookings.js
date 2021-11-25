@@ -5,6 +5,12 @@ export const getBookings = () => {
     return response;
 }
 
+export const getBookingsById = (id) => {
+  const response = axios.get(`http://localhost:4201/mostrar_citas/${id}`);
+  return response;
+}
+
+
 export const RegisterBooking = (usuario, motivo, fecha_cita, hora, area, rfc) => {
   // const history = useHistory();
   return axios

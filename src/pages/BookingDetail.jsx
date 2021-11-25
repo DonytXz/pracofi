@@ -1,6 +1,7 @@
 import React from "react";
 import { BookingCard } from "../components/bookingDetails/BookingCard";
 import { HeaderUser } from "../components/global/";
+import { getBookingsById } from "../services/";
 
 const BookingDetail = () => {
   return (

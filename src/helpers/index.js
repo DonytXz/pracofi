@@ -1,3 +1,3 @@
-import { notPresentToken } from "./Alerts";
+import { notPresentToken, alerForm } from "./Alerts";
 
-export { notPresentToken };
+export { notPresentToken, alerForm };

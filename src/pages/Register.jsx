@@ -3,6 +3,7 @@ import { HeaderForms } from "../components/global";
 // import { Link } from "react-router-dom";
 import { Link, useHistory } from "react-router-dom";
 import { RegisterService } from "../services";
+import { alerForm } from "../helpers";
 
 const Register = () => {
   // const [userName, setUserName] = useState("");
@@ -17,16 +18,26 @@ const Register = () => {
   const submit = () => {
     // console.log("click");
 
-    RegisterService(name, email, pasword)
-      .then((res) => {
-        // console.log(res);
-        if (res.ok) {
-          history.push("/login");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (
+      name != "" ||
+      lastName != "" ||
+      email != "" ||
+      pasword != "" ||
+      paswordConfirm
+    ) {
+      RegisterService(name, email, pasword)
+        .then((res) => {
+          // console.log(res);
+          if (res.ok) {
+            history.push("/login");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alerForm();
+    }
     // history.push("/bookings");
     // setSenFlag(true);
   };
@@ -122,7 +133,7 @@ const Register = () => {
                 to="/login"
                 class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
               >
-                ¿inicia sesion con  una cuenta?
+                ¿inicia sesion con una cuenta?
               </Link>
             </div>
           </div>
