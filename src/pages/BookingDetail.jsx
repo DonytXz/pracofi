@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookingCard } from "../components/bookingDetails/BookingCard";
-import { HeaderUser } from "../components/global/";
+import { HeaderUser, GeneratePDF } from "../components/global/";
 import { getBookingsById, topics, UpdateBooking, clear } from "../services/";
 import { useParams } from "react-router-dom";
 import { DatePicker } from "../components/scheduleBooking/";
@@ -107,7 +107,7 @@ const BookingDetail = () => {
       <div className="w-full h-full flex flex-col">
         {/* <BookingCard /> */}
         <HeaderUser />
-
+        <GeneratePDF />
         <div className="w-10/12 lg:w-2/3 flex flex-col m-auto bg-gray-200 p-8">
           <button onClick={deleteBooking}>
             <svg
@@ -216,7 +216,7 @@ const BookingDetail = () => {
                   // console.log(topic);
                   return (
                     <option key={index} value={topic.motivos}>
-                   {topic.motivos}
+                      {topic.motivos}
                     </option>
                   );
                 })}
