@@ -39,7 +39,7 @@ const Login = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="username"
               >
-                Username
+                Correo Resgistrado
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black"
@@ -54,7 +54,7 @@ const Login = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="password"
               >
-                Password
+                Contraseña
               </label>
               <input
                 class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-black mb-3"
@@ -63,7 +63,7 @@ const Login = () => {
                 placeholder="******************"
                 onChange={(e) => setPasword(e.target.value)}
               />
-              <p class="text-white text-xs italic">Please choose a password.</p>
+              <p class="text-white text-xs italic">Porfavor elija una contraseña.</p>
             </div>
             <div class="flex items-center justify-between">
               <button
@@ -71,13 +71,13 @@ const Login = () => {
                 type="button"
                 onClick={submit}
               >
-                Sign In
+                Iniciar sesión 
               </button>
               <Link
                 to="/register"
                 class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
               >
-                Create an account firts?
+                ¿Deseas crear una cuenta?
               </Link>
             </div>
           </div>

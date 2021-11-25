@@ -39,13 +39,13 @@ const Register = () => {
           <div className="w-full lg:w-3/4 m-auto">
             <div class="mb-4">
               <label class="block text-white text-sm font-bold mb-2" for="Name">
-                Name
+                Nombre
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black"
                 id="Name"
                 type="text"
-                placeholder="Name"
+                placeholder="Ingresa tu nombre"
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -54,13 +54,13 @@ const Register = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="LastName"
               >
-                Last Name
+                Apellido
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black"
                 id="LastName"
                 type="text"
-                placeholder="LastName"
+                placeholder="Ingresa tu apellido"
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
@@ -69,13 +69,13 @@ const Register = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="username"
               >
-                Email
+                Correo Electronico
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black"
                 id="username"
                 type="text"
-                placeholder="Username"
+                placeholder="Ingresa tu correo electronico"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -84,7 +84,7 @@ const Register = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="password"
               >
-                Password
+                Contraeña
               </label>
               <input
                 class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-black"
@@ -99,7 +99,7 @@ const Register = () => {
                 class="block text-white text-sm font-bold mb-2"
                 for="ConfirmPassword"
               >
-                Password
+                Contraseña
               </label>
               <input
                 class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-black"
@@ -109,7 +109,7 @@ const Register = () => {
                 onChange={(e) => setPaswordConfirm(e.target.value)}
               />
             </div>
-            <p class="text-white text-xs italic">Comfirm the password.</p>
+            <p class="text-white text-xs italic">Confirma la contraseña</p>
             <div class="flex items-center justify-between">
               <button
                 // to="/bookings"
@@ -122,7 +122,7 @@ const Register = () => {
                 to="/login"
                 class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
               >
-                Already have an account?
+                ¿inicia sesion con  una cuenta?
               </Link>
             </div>
           </div>
