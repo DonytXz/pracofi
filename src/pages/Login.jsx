@@ -71,7 +71,7 @@ const Login = () => {
                 type="button"
                 onClick={submit}
               >
-                Sign In
+                Iniciar sesión 
               </button>
               <Link
                 to="/register"
