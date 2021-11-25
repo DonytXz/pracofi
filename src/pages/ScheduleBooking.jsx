@@ -41,7 +41,7 @@ const ScheduleBooking = () => {
   // console.log(text, " Step2 Data");
 
   //step3Data
-  console.log(area, rfc, " Step3 Data");
+  // console.log(area, rfc, " Step3 Data");
 
   const senBooking = () => {
     // let concatDate = moment(date);
@@ -58,7 +58,7 @@ const ScheduleBooking = () => {
       rfc
     )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
           history.push("/bookings");
         } else {
@@ -66,7 +66,7 @@ const ScheduleBooking = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -86,7 +86,7 @@ const ScheduleBooking = () => {
   useEffect(() => {
     topics()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setTopics(res.data);
         setLoadingTopics(false);
         // if (res.status === 201) {
@@ -96,7 +96,7 @@ const ScheduleBooking = () => {
         // }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 

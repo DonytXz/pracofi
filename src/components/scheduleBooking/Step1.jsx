@@ -30,7 +30,7 @@ const Step1 = (props) => {
           />
           <div className="flex flex-col my-1">
             <label className="block mx-auto mb-2">
-              setTopic
+              {/* setTopic */}
               <span className="text-white  font-semibold">
                 Motivo de consulta
               </span>
@@ -49,8 +49,8 @@ const Step1 = (props) => {
                 topicsData?.map((topic, index) => {
                   // console.log(topic);
                   return (
-                    <option key={index} value={topic.motivo}>
-                      {topic.motivo}
+                    <option key={index} value={topic.motivos}>
+                      {topic.motivos}
                     </option>
                   );
                 })}

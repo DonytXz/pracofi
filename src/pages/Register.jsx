@@ -33,7 +33,7 @@ const Register = () => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     } else {
       alerForm();

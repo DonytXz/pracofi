@@ -33,14 +33,14 @@ const BookingDetail = () => {
     // console.log("entro");
     clear(id)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 200) {
           history.push("/bookings");
           success();
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -60,23 +60,23 @@ const BookingDetail = () => {
       id
     )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 204) {
-          // history.push("/bookings");
+          history.push("/bookings");
           success();
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
   useEffect(() => {
-    console.log(id);
+    // console.log(id);
     getBookingsById(id)
       .then((res) => {
         // console.log(res);
-        setBooking(res.data.result);
+        setBooking(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -87,7 +87,7 @@ const BookingDetail = () => {
   useEffect(() => {
     topics()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setTopics(res.data);
         setLoadingTopics(false);
         // if (res.status === 201) {
@@ -97,10 +97,11 @@ const BookingDetail = () => {
         // }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
   // console.log(id);
+  console.log(booking);
   return (
     <>
       <div className="w-full h-full flex flex-col">
@@ -124,23 +125,23 @@ const BookingDetail = () => {
               {/* <div classNamew="w-1/2 mx-auto flex flex-col bg-gray-200 "> */}
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Area: </span>
-                {booking.area}
+                {booking?.area}
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Fecha: </span>
-                {booking.fecha_cita}
+                {booking?.fecha_cita}
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Hora: </span>
-                {booking.hora}
+                {booking?.hora}
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Motivo: </span>
-                {booking.motivo}
+                {booking?.motivo}
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">RFC: </span>
-                {booking.rfc}
+                {booking?.rfc}
               </div>
               {/* </div> */}
             </>
@@ -214,8 +215,8 @@ const BookingDetail = () => {
                 topicsData?.map((topic, index) => {
                   // console.log(topic);
                   return (
-                    <option key={index} value={topic.motivo}>
-                      {topic.motivo}
+                    <option key={index} value={topic.motivos}>
+                   {topic.motivos}
                     </option>
                   );
                 })}

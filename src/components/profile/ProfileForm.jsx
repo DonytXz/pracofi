@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { RegisterProfileData } from "../../services";
+import { alerForm, success } from "../../helpers";
+import { useHistory } from "react-router-dom";
 
 const ProfileForm = () => {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -9,10 +13,55 @@ const ProfileForm = () => {
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
   const [ocupation, setOcupation] = useState("");
-  console.log(name,email,address,city,country,phone,zip,ocupation);
+  const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
+
+  // console.log(name,email,address,city,country,phone,zip,ocupation);
+  const send = () => {
+    // console.log("click");
+
+    if (
+      name != "" &&
+      email != "" &&
+      address != "" &&
+      city != "" &&
+      country != "" &&
+      zip != "" &&
+      phone != "" &&
+      ocupation != "" &&
+      userId != ""
+    ) {
+      RegisterProfileData(
+        name,
+        email,
+        address,
+        city,
+        country,
+        zip,
+        phone,
+        ocupation,
+        userId
+      )
+        .then((res) => {
+          console.log(res);
+          if (res.status === 201) {
+            history.push("/bookings");
+            success();
+          }
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    } 
+    else {
+      alerForm();
+    }
+    // history.push("/bookings");
+    // setSenFlag(true);
+  };
+
   return (
     <>
-      <form class="w-10/12 lg:w-1/2 mx-auto p-10 bg-white rounded shadow-xl">
+      <div class="w-10/12 lg:w-1/2 mx-auto p-10 bg-white rounded shadow-xl">
         <p class="text-gray-800 font-medium mb-4">Datos prersonales</p>
         <div class="">
           <label class="block text-sm text-gray-600" for="cus_name">
@@ -20,14 +69,13 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-            id="cus_name"
-            name="cus_name"
+            // id="cus_name"
+            // name="cus_name"
             type="text"
-            required=""
+            // required=""
             placeholder="Your Name"
             aria-label="Name"
             onChange={(e) => setName(e.target.value)}
-
           />
         </div>
         <div class="mt-2">
@@ -36,10 +84,10 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
+            // id="cus_email"
+            // name="cus_email"
             type="text"
-            required=""
+            // required=""
             placeholder="Your Email"
             aria-label="Email"
             onChange={(e) => setEmail(e.target.value)}
@@ -51,10 +99,10 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
+            // id="cus_email"
+            // name="cus_email"
             type="text"
-            required=""
+            // required=""
             placeholder="Street"
             aria-label="Email"
             onChange={(e) => setAddress(e.target.value)}
@@ -66,10 +114,10 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
+            // id="cus_email"
+            // name="cus_email"
             type="text"
-            required=""
+            // required=""
             placeholder="City"
             aria-label="Email"
             onChange={(e) => setCity(e.target.value)}
@@ -81,10 +129,10 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
+            // id="cus_email"
+            // name="cus_email"
             type="text"
-            required=""
+            // required=""
             placeholder="Country"
             aria-label="Email"
             onChange={(e) => setCountry(e.target.value)}
@@ -96,10 +144,10 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
+            // id="cus_email"
+            // name="cus_email"
             type="text"
-            required=""
+            // required=""
             placeholder="Zip"
             aria-label="Email"
             onChange={(e) => setZip(e.target.value)}
@@ -112,10 +160,10 @@ const ProfileForm = () => {
           <input
             class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            id="cus_name"
-            name="cus_name"
+            // id="cus_name"
+            // name="cus_name"
             type="number"
-            required=""
+            // required=""
             placeholder="xxx-xxx-xxx-xxx"
             aria-label="Name"
             onChange={(e) => setPhone(e.target.value)}
@@ -127,20 +175,23 @@ const ProfileForm = () => {
           </label>
           <input
             class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            id="cus_name"
-            name="cus_name"
+            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            // id="cus_name"
+            // name="cus_name"
             type="text"
-            required=""
+            // required=""
             placeholder="Maestro"
             aria-label="Name"
             onChange={(e) => setOcupation(e.target.value)}
           />
         </div>
-
-
-
-      </form>
+        <button
+          onClick={send}
+          className="w-full text-white bg-blue-dark mt-4 p-4"
+        >
+          Enviar datos
+        </button>
+      </div>
     </>
   );
 };

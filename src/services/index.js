@@ -8,6 +8,7 @@ import {
   UpdateBooking,
   clear,
 } from "./Bookings";
+import { RegisterProfileData } from "./Profile";
 
 export {
   login,
@@ -20,4 +21,5 @@ export {
   UpdateBooking,
   topics,
   clear,
+  RegisterProfileData,
 };

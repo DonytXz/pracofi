@@ -6,7 +6,7 @@ export const getBookings = () => {
 };
 
 export const getBookingsById = (id) => {
-  const response = axios.get(`http://localhost:4201/cita/${id}`);
+  const response = axios.get(`http://localhost:4201/citas/${id}`);
   return response;
 };
 export const topics = () => {
@@ -49,7 +49,7 @@ export const RegisterBooking = (
       return res;
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
 };
 
@@ -85,6 +85,6 @@ export const UpdateBooking = (
       return res;
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
 };

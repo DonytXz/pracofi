@@ -1,16 +1,31 @@
 import axios from "axios";
-// import { useHistory } from "react-router-dom";
 
-export const RegisterService = (nombre, email, password) => {
+export const RegisterProfileData = (
+  nombre,
+  email,
+  direccion,
+  ciudad,
+  pais,
+  cp,
+  telefono,
+  ocupacion,
+  usuario
+) => {
   // const history = useHistory();
   return axios
-    .post("http://localhost:4201/register", {
+    .post("http://localhost:4201/perfil", {
       nombre,
       email,
-      password,
+      direccion,
+      ciudad,
+      pais,
+      cp,
+      telefono,
+      ocupacion,
+      usuario,
     })
     .then((res) => {
-        // console.log(res);
+      console.log(res);
       // const name = res.data.usuario.name;
       // const role = res.data.usuario.role;
       // const name = res.data.usuario.name;
@@ -19,9 +34,9 @@ export const RegisterService = (nombre, email, password) => {
       //   if (res.status === 200) {
       //     history.push("/login");
       //   }
-      return res.data;
+      return res;
     })
     .catch((error) => {
-      // console.log(error);
+      console.log(error);
     });
 };
