@@ -7,7 +7,7 @@ import {
   Step3,
   // StepIndicator,
 } from "../components/scheduleBooking/";
-import { getToken, RegisterBooking, topics } from "../services/";
+import { getToken, RegisterBooking, topics, logout } from "../services/";
 import { notPresentToken } from "../helpers";
 import moment from "moment";
 
@@ -75,6 +75,12 @@ const ScheduleBooking = () => {
     }
   }, [getToken()]);
 
+  const exit = () => {
+    logout();
+    notPresentToken();
+    history.push("/login");
+  };
+
   useEffect(() => {
     topics()
       .then((res) => {
@@ -138,15 +144,15 @@ const ScheduleBooking = () => {
           {step3 && <Step3 setIsOnZMG={setIsOnZMG} />}
           <div className="flex flex-row mt-auto p-6 ">
             <div className=" mr-auto ">
-              <Link
-                to="/"
+              {/* <button
+                // to="/"
                 disabled={step2}
                 className={`${
                   !step2 ? "block" : "hidden"
                 } p-6 border-2 rounded-2xl capitalize text-white`}
               >
                 Cancelar
-              </Link>
+              </button>
               <button
                 // disabled="disabled"
                 onClick={prev}
@@ -155,7 +161,25 @@ const ScheduleBooking = () => {
                 } p-6 border-2 rounded-2xl capitalize text-white`}
               >
                 Anterior
-              </button>
+              </button> */}
+              {!step2 ? (
+                <button
+                  // to="/"
+                  onClick={exit}
+                  disabled={step2}
+                  className={` p-6 border-2 rounded-2xl capitalize text-white`}
+                >
+                  Cancelar
+                </button>
+              ) : (
+                <button
+                  // disabled="disabled"
+                  onClick={prev}
+                  className={`p-6 border-2 rounded-2xl capitalize text-white`}
+                >
+                  Anterior
+                </button>
+              )}
             </div>
 
             <div className="ml-auto ">
