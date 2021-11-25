@@ -49,7 +49,7 @@ const Step1 = (props) => {
                 topicsData?.map((topic, index) => {
                   // console.log(topic);
                   return (
-                    <option key={index} value={topic.id}>
+                    <option key={index} value={topic.motivo}>
                       {topic.motivo}
                     </option>
                   );
