@@ -26,11 +26,9 @@ const Home = () => {
               <img className="" src={Logo} alt="" srcSet="" />
             </div>
 
-            <span  className="my-4" class="text-blue-900 font-semibold" align="justify">
-            La empresa PRACOFI, Asesoría, Contable Fiscal, es un despacho de contadores dedicados a brindar asesoría contables y fiscales, así como servicios administrativos, siendo reconocidos por su compromiso y dedicación para llevarlos a cabo.
-Actualmente, ha laborando en el sector empresarial durante 15 años. A lo largo de este tiempo, ha demostrado un gran compromiso con sus clientes de manera que la empresa constantemente está creciendo y realizando nuevos cambios, uno de ellos fue en su imagen corporativa, como fue el cambio de su nombre comercial que anteriormente era PR Contadores.
-
-            </span>
+            <span className="text-center uppercase text-2xl text-blue-regular mb-2">
+              Asesoria contable y fiscal
+              </span>
             <p className="w-10/12 mx-auto text-lg text-blue-regular mb-4">
               ¿Como podemos ayudarte? en Pracofi nos preocupamos por ti. ¡Agenda
               tu cita y comencemos ahora!
