@@ -4,7 +4,7 @@ import { Booking } from "./";
 
 const BookignsList = (props) => {
   const { bookings } = props;
-  console.log(bookings);
+  // console.log(bookings);
 
   return (
     <>
