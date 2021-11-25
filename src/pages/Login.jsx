@@ -16,27 +16,23 @@ const Login = () => {
   const submit = () => {
     // console.log("click");
 
-    if (
-      email != "" ||
-      pasword
-    ) {
-
-    login(email, pasword)
-      .then((res) => {
-        // console.log(res);
-        if (res.ok) {
-          history.push("/bookings");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // setSenFlag(true);
-  }else{
-    alerForm();
-  }
-  //comentario
-  //comentario
+    if (email != "" && pasword != "") {
+      login(email, pasword)
+        .then((res) => {
+          // console.log(res);
+          if (res.ok) {
+            history.push("/bookings");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // setSenFlag(true);
+    } else {
+      alerForm();
+    }
+    //comentario
+    //comentario
   };
 
   return (
@@ -74,7 +70,9 @@ const Login = () => {
                 placeholder="******************"
                 onChange={(e) => setPasword(e.target.value)}
               />
-              <p class="text-white text-xs italic">Porfavor elija una contraseña.</p>
+              <p class="text-white text-xs italic">
+                Porfavor elija una contraseña.
+              </p>
             </div>
             <div class="flex items-center justify-between">
               <button
@@ -82,7 +80,7 @@ const Login = () => {
                 type="button"
                 onClick={submit}
               >
-                Iniciar sesión 
+                Iniciar sesión
               </button>
               <Link
                 to="/register"

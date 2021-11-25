@@ -3,7 +3,10 @@ import { BookingCard } from "../components/bookingDetails/BookingCard";
 import { HeaderUser } from "../components/global/";
 import { getBookingsById } from "../services/";
 
-const BookingDetail = () => {
+const BookingDetail = (props) => {
+  console.log(props);
+  // const { id } = props.match.params;
+  // console.log(id);
   return (
     <>
       <div className="w-full h-full flex flex-col">

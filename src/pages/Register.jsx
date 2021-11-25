@@ -19,10 +19,10 @@ const Register = () => {
     // console.log("click");
 
     if (
-      name != "" ||
-      lastName != "" ||
-      email != "" ||
-      pasword != "" ||
+      name != "" &&
+      lastName != "" &&
+      email != "" &&
+      pasword != "" &&
       paswordConfirm != ""
     ) {
       RegisterService(name, email, pasword)
