@@ -65,7 +65,7 @@ const ProfileForm = () => {
         <p class="text-gray-800 font-medium mb-4">Datos prersonales</p>
         <div class="">
           <label class="block text-sm text-gray-600" for="cus_name">
-            Name
+            Nombre
           </label>
           <input
             class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
@@ -73,14 +73,14 @@ const ProfileForm = () => {
             // name="cus_name"
             type="text"
             // required=""
-            placeholder="Your Name"
+            placeholder="Su nombre"
             aria-label="Name"
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div class="mt-2">
           <label class="block text-sm text-gray-600" for="cus_email">
-            Email
+            Correo electronico
           </label>
           <input
             class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded"
@@ -88,7 +88,7 @@ const ProfileForm = () => {
             // name="cus_email"
             type="text"
             // required=""
-            placeholder="Your Email"
+            placeholder="Su Correo"
             aria-label="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -103,14 +103,14 @@ const ProfileForm = () => {
             // name="cus_email"
             type="text"
             // required=""
-            placeholder="Street"
+            placeholder="Direccion de casa"
             aria-label="Email"
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
         <div class="mt-2">
           <label class=" text-sm block text-gray-600" for="cus_email">
-            City
+            area
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
@@ -118,7 +118,7 @@ const ProfileForm = () => {
             // name="cus_email"
             type="text"
             // required=""
-            placeholder="City"
+            placeholder="Area"
             aria-label="Email"
             onChange={(e) => setCity(e.target.value)}
           />
@@ -133,14 +133,14 @@ const ProfileForm = () => {
             // name="cus_email"
             type="text"
             // required=""
-            placeholder="Country"
+            placeholder="Ciudad"
             aria-label="Email"
             onChange={(e) => setCountry(e.target.value)}
           />
         </div>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
           <label class=" block text-sm text-gray-600" for="cus_email">
-            Zip
+            Municipio
           </label>
           <input
             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
@@ -148,7 +148,7 @@ const ProfileForm = () => {
             // name="cus_email"
             type="text"
             // required=""
-            placeholder="Zip"
+            placeholder="Municipio"
             aria-label="Email"
             onChange={(e) => setZip(e.target.value)}
           />

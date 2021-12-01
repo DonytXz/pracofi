@@ -136,7 +136,7 @@ const Register = () => {
                 to="/login"
                 class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
               >
-                ¿inicia sesion con una cuenta?
+                inicia sesion con una cuenta
               </Link>
             </div>
           </div>

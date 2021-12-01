@@ -161,7 +161,7 @@ const BookingDetail = () => {
               name="cus_email"
               type="text"
               required=""
-              placeholder="City"
+              placeholder="Area"
               aria-label="Email"
               onChange={(e) => setArea(e.target.value)}
             />
@@ -243,7 +243,7 @@ const BookingDetail = () => {
               name="cus_email"
               type="text"
               required=""
-              placeholder="City"
+              placeholder="RFC"
               aria-label="Email"
               onChange={(e) => setRfc(e.target.value)}
             />

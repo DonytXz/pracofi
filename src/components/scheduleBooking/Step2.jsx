@@ -9,9 +9,7 @@ const Step2 = (props) => {
       <span className="text-4xl mx-auto mb-4">
         Informacion necesaria para continuar
       </span>
-      <p className="text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
+     
       <div className="flex flex-col p-4">
         {/* <CountryPicker /> */}
         <textarea
