@@ -1,11 +1,15 @@
 import axios from "axios";
 
 export const login = (email, password) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
   return axios
     .post("http://localhost:4201/login", {
       email,
       password,
-    })
+    },headers)
     .then((res) => {
       // console.log(res);
       const name = res.data.usuario.nombre;
