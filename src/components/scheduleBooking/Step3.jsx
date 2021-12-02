@@ -2,7 +2,7 @@ import React from "react";
 import { StepIndicator } from "./";
 
 const Step3 = (props) => {
-  const { setRfc, setArea } = props;
+  const { setRfc, areaData, areaLoading, setArea } = props;
 
   // const handleIsOnZMG = (type) => () => {
   //   {
@@ -45,16 +45,37 @@ const Step3 = (props) => {
             <label class="block text-white mx-auto text-xl mb-2" for="cus_name">
               Area
             </label>
-            <input
-              class="w-full px-5 py-1 text-gray-700  rounded"
-              id="cus_name"
-              name="cus_name"
-              type="text"
-              required=""
-              placeholder="Area"
-              aria-label="Name"
+            <select
+              name="reason"
+              className="w-full px-5 py-1 text-gray-700  rounded"
+              // value={values.reason}
+              // onChange={handleChange}
+              // onBlur={handleBlur}
               onChange={(e) => setArea(e.target.value)}
-            />
+            >
+              <option disabled>Seleccione</option>
+
+              {!areaLoading &&
+                areaData?.map((area, index) => {
+                  console.log(area);
+                  return (
+                    <option key={index} value={area.area}>
+                      {area.area}
+                    </option>
+                  );
+                })}
+              {/* <option>Opcion1</option>
+              <option>Opcion2</option> */}
+              {/* {loading ? (
+                  <option>Cargando...</option>
+                ) : (
+                  topics.map((topic, index) => (
+                    <option key={index} value={topic.id}>
+                      {topic.name}
+                    </option>
+                  ))
+                )} */}
+            </select>
             <label class="block text-white mx-auto text-xl my-2" for="cus_name">
               RFC
             </label>
