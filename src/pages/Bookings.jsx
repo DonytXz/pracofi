@@ -27,7 +27,8 @@ const Bookings = () => {
   function oldOrNewDate(bookings, currentD) {
     let date;
     bookings.map((element) => {
-      date = moment(element.start).format();
+      console.log(element, "asdsad");
+      date = moment(element.fecha_cita).format();
       if (!moment(date).isSameOrAfter(currentD)) {
         oldBookings.push(element);
       } else {
