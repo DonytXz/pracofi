@@ -7,6 +7,7 @@ import {
   topics,
   UpdateBooking,
   clear,
+  areas,
 } from "./Bookings";
 import { RegisterProfileData } from "./Profile";
 
@@ -22,4 +23,5 @@ export {
   topics,
   clear,
   RegisterProfileData,
+  areas
 };

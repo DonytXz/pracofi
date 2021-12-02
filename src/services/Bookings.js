@@ -25,6 +25,14 @@ export const topics = () => {
   const response = axios.get("http://localhost:4201/motivos",headers);
   return response;
 };
+export const areas = () => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.get("http://localhost:4201/area",headers);
+  return response;
+};
 export const clear = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",

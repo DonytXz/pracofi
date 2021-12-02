@@ -7,7 +7,7 @@ import {
   Step3,
   // StepIndicator,
 } from "../components/scheduleBooking/";
-import { getToken, RegisterBooking, topics, logout } from "../services/";
+import { getToken, RegisterBooking, topics, logout, areas } from "../services/";
 import { notPresentToken } from "../helpers";
 import moment from "moment";
 
@@ -17,16 +17,19 @@ const ScheduleBooking = () => {
   const [date, setDate] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [topic, setTopic] = useState("");
+  // const [area, setArea] = useState("");
   // const [isOnZMG, setIsOnZMG] = useState(false);
-  const [area, setArea] = useState("");
+
   const [rfc, setRfc] = useState("");
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
 
   const [loadingTopics, setLoadingTopics] = useState(true);
+  const [areaLoading, setAreaLoading] = useState(true);
   const [topicsData, setTopics] = useState([]);
-
+  const [areaData, setAreas] = useState([]);
+  const [area, setArea] = useState("");
   const [text, setTxt] = useState("");
   const [txt, setText] = useState("");
 
@@ -86,9 +89,23 @@ const ScheduleBooking = () => {
   useEffect(() => {
     topics()
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setTopics(res.data);
         setLoadingTopics(false);
+        // if (res.status === 201) {
+        //   history.push("/bookings");
+        // } else {
+        //   history.push("/");
+        // }
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
+      areas()
+      .then((res) => {
+        // console.log(res);
+        setAreas(res.data);
+        setAreaLoading(false);
         // if (res.status === 201) {
         //   history.push("/bookings");
         // } else {
@@ -143,7 +160,7 @@ const ScheduleBooking = () => {
             />
           )}
           {step2 && !step3 && <Step2 text={text} setTxt={setTxt} />}
-          {step3 && <Step3 setArea={setArea} setRfc={setRfc} />}
+          {step3 && <Step3 setArea={setArea} areaData={areaData} areaLoading={areaLoading} setRfc={setRfc} />}
           <div className="flex flex-row mt-auto p-6 ">
             <div className=" mr-auto ">
               {/* <button
