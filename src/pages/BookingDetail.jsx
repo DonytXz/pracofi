@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { BookingCard } from "../components/bookingDetails/BookingCard";
 import { HeaderUser, GeneratePDF } from "../components/global/";
-import { getBookingsById, topics, UpdateBooking, clear } from "../services/";
+import { getBookingsById, topics, UpdateBooking, clear,areas } from "../services/";
 import { useParams } from "react-router-dom";
 import { DatePicker } from "../components/scheduleBooking/";
 import { useHistory } from "react-router-dom";
 import { success } from "../helpers";
+import moment from "moment";
+import 'moment/locale/es';
+
 
 const BookingDetail = () => {
+  const [areaData, setAreas] = useState([]);
+  const [area, setArea] = useState("");
+  const [areaLoading, setAreaLoading] = useState(true);
   const history = useHistory();
   const [booking, setBooking] = useState({});
   const [loading, setLoading] = useState(true);
@@ -16,7 +22,7 @@ const BookingDetail = () => {
   const [dateTime, setDateTime] = useState("");
   const [topic, setTopic] = useState("");
   // const [isOnZMG, setIsOnZMG] = useState(false);
-  const [area, setArea] = useState("");
+  // const [area, setArea] = useState("");
   const [rfc, setRfc] = useState("");
   // const [step2, setstep2] = useState(false);
   // const [step3, setStep3] = useState(false);
@@ -28,6 +34,7 @@ const BookingDetail = () => {
   // const { id } = props?.location;
   // console.log(props.value.location.state);
   const { id } = useParams();
+  
 
   const deleteBooking = () => {
     // console.log("entro");
@@ -99,6 +106,20 @@ const BookingDetail = () => {
       .catch((error) => {
         // console.log(error);
       });
+      areas()
+      .then((res) => {
+        // console.log(res);
+        setAreas(res.data);
+        setAreaLoading(false);
+        // if (res.status === 201) {
+        //   history.push("/bookings");
+        // } else {
+        //   history.push("/");
+        // }
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
   }, []);
   // console.log(id);
   console.log(booking);
@@ -129,7 +150,7 @@ const BookingDetail = () => {
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Fecha: </span>
-                {booking?.fecha_cita}
+                { moment(booking?.fecha_cita).format("MMM Do YY")}
               </div>
               <div className="mr-auto text-2xl font-semibold">
                 <span className="font-bold">Hora: </span>
@@ -155,16 +176,37 @@ const BookingDetail = () => {
             <label class=" text-sm block text-gray-600" for="cus_email">
               Area
             </label>
-            <input
-              class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-              id="cus_email"
-              name="cus_email"
-              type="text"
-              required=""
-              placeholder="Area"
-              aria-label="Email"
+            <select
+              name="reason"
+              className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+              // value={values.reason}
+              // onChange={handleChange}
+              // onBlur={handleBlur}
               onChange={(e) => setArea(e.target.value)}
-            />
+            >
+              <option disabled>Seleccione</option>
+
+              {!areaLoading &&
+                areaData?.map((area, index) => {
+                  console.log(area);
+                  return (
+                    <option key={index} value={area.area}>
+                      {area.area}
+                    </option>
+                  );
+                })}
+              {/* <option>Opcion1</option>
+              <option>Opcion2</option> */}
+              {/* {loading ? (
+                  <option>Cargando...</option>
+                ) : (
+                  topics.map((topic, index) => (
+                    <option key={index} value={topic.id}>
+                      {topic.name}
+                    </option>
+                  ))
+                )} */}
+            </select>
           </div>
           <div class="mt-2 flex flex-col">
             <label class=" text-sm block text-gray-600" for="cus_email">
