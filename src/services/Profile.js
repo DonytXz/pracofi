@@ -11,6 +11,10 @@ export const RegisterProfileData = (
   ocupacion,
   usuario
 ) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
   // const history = useHistory();
   return axios
     .post("http://localhost:4201/perfil", {
@@ -23,7 +27,7 @@ export const RegisterProfileData = (
       telefono,
       ocupacion,
       usuario,
-    })
+    },headers)
     .then((res) => {
       console.log(res);
       // const name = res.data.usuario.name;

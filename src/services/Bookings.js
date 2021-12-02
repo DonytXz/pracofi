@@ -1,20 +1,36 @@
 import axios from "axios";
 
 export const getBookings = () => {
-  const response = axios.get("http://localhost:4201/mostrar_citas");
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.get("http://localhost:4201/mostrar_citas",headers);
   return response;
 };
 
 export const getBookingsById = (id) => {
-  const response = axios.get(`http://localhost:4201/citas/${id}`);
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.get(`http://localhost:4201/citas/${id}`,headers);
   return response;
 };
 export const topics = () => {
-  const response = axios.get("http://localhost:4201/motivos");
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.get("http://localhost:4201/motivos",headers);
   return response;
 };
 export const clear = (id) => {
-  const response = axios.delete(`http://localhost:4201/citas/${id}`);
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.delete(`http://localhost:4201/citas/${id}`,headers);
   return response;
 };
 
@@ -26,6 +42,10 @@ export const RegisterBooking = (
   area,
   rfc
 ) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
   // const history = useHistory();
   return axios
     .post("http://localhost:4201/registro_cita", {
@@ -35,7 +55,7 @@ export const RegisterBooking = (
       hora,
       area,
       rfc,
-    })
+    },headers)
     .then((res) => {
       // console.log(res);
       // const name = res.data.usuario.name;
@@ -62,6 +82,10 @@ export const UpdateBooking = (
   rfc,
   id
 ) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
   // const history = useHistory();
   return axios
     .put(`http://localhost:4201/modificar_cita/${id}`, {
@@ -71,7 +95,7 @@ export const UpdateBooking = (
       hora,
       area,
       rfc,
-    })
+    },headers)
     .then((res) => {
       // console.log(res);
       // const name = res.data.usuario.name;
