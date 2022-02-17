@@ -17,17 +17,21 @@ export const RegisterProfileData = (
   };
   // const history = useHistory();
   return axios
-    .post("http://localhost:4201/perfil", {
-      nombre,
-      email,
-      direccion,
-      ciudad,
-      pais,
-      cp,
-      telefono,
-      ocupacion,
-      usuario,
-    },headers)
+    .post(
+      `${process.env.REACT_APP_API_LOCAL}/perfil`,
+      {
+        nombre,
+        email,
+        direccion,
+        ciudad,
+        pais,
+        cp,
+        telefono,
+        ocupacion,
+        usuario,
+      },
+      headers
+    )
     .then((res) => {
       console.log(res);
       // const name = res.data.usuario.name;

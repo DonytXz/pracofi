@@ -5,7 +5,10 @@ export const getBookings = () => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.get("http://localhost:4201/mostrar_citas",headers);
+  const response = axios.get(
+    `${process.env.REACT_APP_API_LOCAL}/mostrar_citas`,
+    headers
+  );
   return response;
 };
 
@@ -14,7 +17,10 @@ export const getBookingsById = (id) => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.get(`http://localhost:4201/citas/${id}`,headers);
+  const response = axios.get(
+    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    headers
+  );
   return response;
 };
 export const topics = () => {
@@ -22,7 +28,10 @@ export const topics = () => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.get("http://localhost:4201/motivos",headers);
+  const response = axios.get(
+    `${process.env.REACT_APP_API_LOCAL}/motivos`,
+    headers
+  );
   return response;
 };
 export const areas = () => {
@@ -30,7 +39,10 @@ export const areas = () => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.get("http://localhost:4201/area",headers);
+  const response = axios.get(
+    `${process.env.REACT_APP_API_LOCAL}/area`,
+    headers
+  );
   return response;
 };
 export const clear = (id) => {
@@ -38,7 +50,7 @@ export const clear = (id) => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.delete(`http://localhost:4201/citas/${id}`,headers);
+  const response = axios.delete(`${process.env.REACT_APP_API_LOCAL}/citas/${id}`, headers);
   return response;
 };
 
@@ -56,14 +68,18 @@ export const RegisterBooking = (
   };
   // const history = useHistory();
   return axios
-    .post("http://localhost:4201/registro_cita", {
-      usuario,
-      motivo,
-      fecha_cita,
-      hora,
-      area,
-      rfc,
-    },headers)
+    .post(
+      "http://localhost:4201/registro_cita",
+      {
+        usuario,
+        motivo,
+        fecha_cita,
+        hora,
+        area,
+        rfc,
+      },
+      headers
+    )
     .then((res) => {
       // console.log(res);
       // const name = res.data.usuario.name;
@@ -96,14 +112,18 @@ export const UpdateBooking = (
   };
   // const history = useHistory();
   return axios
-    .put(`http://localhost:4201/modificar_cita/${id}`, {
-      usuario,
-      motivo,
-      fecha_cita,
-      hora,
-      area,
-      rfc,
-    },headers)
+    .put(
+      `http://localhost:4201/modificar_cita/${id}`,
+      {
+        usuario,
+        motivo,
+        fecha_cita,
+        hora,
+        area,
+        rfc,
+      },
+      headers
+    )
     .then((res) => {
       // console.log(res);
       // const name = res.data.usuario.name;

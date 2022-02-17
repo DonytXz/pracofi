@@ -6,7 +6,7 @@ export const login = (email, password) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   return axios
-    .post("http://localhost:4201/login", {
+    .post(`${process.env.REACT_APP_API_LOCAL}/login`, {
       email,
       password,
     },headers)

@@ -8,13 +8,17 @@ export const RegisterService = (nombre, email, password) => {
   };
   // const history = useHistory();
   return axios
-    .post("http://localhost:4201/register", {
-      nombre,
-      email,
-      password,
-    },headers)
+    .post(
+      ` ${process.env.REACT_APP_API_LOCAL}/register`,
+      {
+        nombre,
+        email,
+        password,
+      },
+      headers
+    )
     .then((res) => {
-        // console.log(res);
+      // console.log(res);
       // const name = res.data.usuario.name;
       // const role = res.data.usuario.role;
       // const name = res.data.usuario.name;
