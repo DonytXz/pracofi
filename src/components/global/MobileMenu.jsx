@@ -5,16 +5,20 @@ const MobileMenu = (props) => {
   const { isLanding, menuFlag } = props;
   return (
     <>
-      <nav className={`${menuFlag ? "flex justify-center" : "hidden"}`}>
-        <ul>
-          <li>
+      <nav
+        className={`${
+          menuFlag ? "flex justify-center" : "hidden"
+        } w-10/12 mx-auto md:2/3 lg:1/3`}
+      >
+        <ul className="w-full text-center">
+          <li className="my-1">
             <Link to="/" className="uppercase">
               Home
             </Link>
           </li>
           {isLanding && (
             <>
-              <li>
+              <li className="my-1">
                 <Link
                   to={{ pathname: "/", hash: "#about" }}
                   className="uppercase"
@@ -22,7 +26,7 @@ const MobileMenu = (props) => {
                   quienes somos
                 </Link>
               </li>
-              <li>
+              <li className="my-1">
                 <Link
                   to={{ pathname: "/", hash: "#contact" }}
                   className="uppercase"
@@ -33,9 +37,9 @@ const MobileMenu = (props) => {
             </>
           )}
 
-          <li>
-            <Link to="/login" className="uppercase">
-              Ingresa
+          <li className="my-1">
+            <Link to="/register" className="uppercase">
+              Registrarse
             </Link>
           </li>
         </ul>
