@@ -9,6 +9,7 @@ import AcountManBookingDetail from "./AcountManBookingDetail";
 import RegisterAcoutnMan from "./RegisterAcoutnMan";
 import Users from "./Users";
 import EditUser from "./EditUser";
+import BookingsAdmin from "./BookingsAdmin";
 
 export {
   ScheduleBooking,
@@ -22,4 +23,5 @@ export {
   RegisterAcoutnMan,
   Users,
   EditUser,
+  BookingsAdmin,
 };

@@ -12,6 +12,7 @@ import {
   RegisterAcoutnMan,
   Users,
   EditUser,
+  BookingsAdmin,
 } from "../pages";
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/bookings">
             <Bookings />
+          </Route>
+          <Route path="/bookings-admin">
+            <BookingsAdmin />
           </Route>
           <Route path="/users">
             <Users />

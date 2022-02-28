@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Edit from "../../assets/img/icons/edit.svg";
 import Trash from "../../assets/img/icons/trash.svg";
+import Moment from "react-moment";
 
-const List = () => {
+const List = (props) => {
+  const { bookings } = props;
+  console.log(bookings);
+
   let arrary = [
     {
       name: "asd",
@@ -29,7 +33,6 @@ const List = () => {
       checkboxes[i].checked = source.target.checked;
     }
   }
-
   return (
     <>
       <div class="max-w-2xl mx-auto">
@@ -58,19 +61,19 @@ const List = () => {
                         scope="col"
                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
-                        Nombre
+                        Area
                       </th>
                       <th
                         scope="col"
                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
-                        Correo
+                        Fecha
                       </th>
                       <th
                         scope="col"
                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
-                        Rol
+                        Hora
                       </th>
                       <th scope="col" class="p-4">
                         <span class="sr-only">Acciones</span>
@@ -78,7 +81,7 @@ const List = () => {
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                    {arrary.map((item, index, array) => {
+                    {bookings.map((item, index, array) => {
                       // let checkFlag = checkBoxAll;
                       const [checked, setChecked] = useState();
                       return (
@@ -98,19 +101,21 @@ const List = () => {
                             </div>
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {item.name}
+                            {item.area}
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                            {item.mail}
+                            <Moment format="YYYY/MM/DD">
+                              {item.fecha_cita}
+                            </Moment>
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {item.rol}
+                            {item.hora}
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              <Link to={"/edit-user"}>
-                                <img src={Edit} alt="" />
-                              </Link>
+                              {/* <Link to={"/edit-user"}> */}
+                              <img src={Edit} alt="" />
+                              {/* </Link> */}
                               <img src={Trash} alt="" />
                             </div>
                           </td>
