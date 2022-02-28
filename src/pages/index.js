@@ -7,5 +7,6 @@ import Profile from "./Profile";
 import BookingDetail from "./BookingDetail";
 import AcountManBookingDetail from "./AcountManBookingDetail";
 import RegisterAcoutnMan from "./RegisterAcoutnMan";
+import Users from "./Users";
 
-export { ScheduleBooking, Bookings, Profile, Landing, Login, Register, BookingDetail, AcountManBookingDetail, RegisterAcoutnMan };
+export { ScheduleBooking, Bookings, Profile, Landing, Login, Register, BookingDetail, AcountManBookingDetail, RegisterAcoutnMan, Users };
