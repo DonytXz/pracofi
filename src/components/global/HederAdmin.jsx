@@ -100,7 +100,7 @@ const HederAdmin = () => {
                 hoverDates ? "bg-gray-800 text-white" : ""
               }   box-border`}
             >
-              <Link to="/bookings" className="block">
+              <Link to="/bookings-admin" className="block">
                 <p className="block text-center p-2">Mis Citas</p>
               </Link>
             </div>
