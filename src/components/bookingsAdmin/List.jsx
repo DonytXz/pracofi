@@ -113,9 +113,9 @@ const List = (props) => {
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              {/* <Link to={"/edit-user"}> */}
+                              <Link to={"/bookingDetailsAdmin"}>
                               <img src={Edit} alt="" />
-                              {/* </Link> */}
+                              </Link>
                               <img src={Trash} alt="" />
                             </div>
                           </td>
