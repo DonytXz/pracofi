@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
+// import "moment-timezone";
 // import { getBookingsById } from "../../services";
 
 const Booking = (props) => {
@@ -21,7 +23,10 @@ const Booking = (props) => {
             </p>
           </div>
           <div className="flex flex-row mx-auto w-full">
-            <span className="bold text-xl">Fecha: {booking.fecha_cita}</span>
+            <span className="bold text-xl">
+              Fecha:{" "}
+              <Moment format="YYYY/MM/DD">{booking.fecha_cita}</Moment>
+            </span>
           </div>
           <div className="flex flex-row mx-auto w-full">
             <span className="bold text-xl">Hora: {booking.hora}</span>
