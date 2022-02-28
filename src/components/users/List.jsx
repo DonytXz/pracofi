@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Edit from "../../assets/img/icons/edit.svg";
 import Trash from "../../assets/img/icons/trash.svg";
 
@@ -108,7 +109,9 @@ const List = () => {
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              <img src={Edit} alt="" />
+                              <Link to={"/edit-user"}>
+                                <img src={Edit} alt="" />
+                              </Link>
                               <img src={Trash} alt="" />
                             </div>
                           </td>

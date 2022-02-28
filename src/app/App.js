@@ -10,7 +10,8 @@ import {
   BookingDetail,
   AcountManBookingDetail,
   RegisterAcoutnMan,
-  Users
+  Users,
+  EditUser,
 } from "../pages";
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/users">
             <Users />
+          </Route>
+          <Route path="/edit-user">
+            <EditUser />
           </Route>
           <Route path="/profile">
             <Profile />
