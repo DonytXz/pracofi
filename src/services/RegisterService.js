@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { useHistory } from "react-router-dom";
 
-export const RegisterService = (nombre, email, password) => {
+export const RegisterService = (nombre, email, password, role) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
@@ -14,6 +14,7 @@ export const RegisterService = (nombre, email, password) => {
         nombre,
         email,
         password,
+        role,
       },
       headers
     )

@@ -25,7 +25,7 @@ const AcountMan = () => {
         pasword != "" &&
         paswordConfirm != ""
       ) {
-        RegisterService(name, email, pasword)
+        RegisterService(name, email, pasword, "CONTADOR")
           .then((res) => {
             // console.log(res);
             if (res.ok) {

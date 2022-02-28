@@ -25,7 +25,7 @@ const Client = () => {
         pasword != "" &&
         paswordConfirm != ""
       ) {
-        RegisterService(name, email, pasword)
+        RegisterService(name, email, pasword, "USER")
           .then((res) => {
             // console.log(res);
             if (res.ok) {

@@ -10,6 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pasword, setPasword] = useState("");
 
+  // let role = storage.getItem("role");
   // useEffect(() => {
   //   login("arianagrande@gmail.com", "12345");
   // }, [sendFlag === true]);
@@ -19,10 +20,30 @@ const Login = () => {
     if (email != "" && pasword != "") {
       login(email, pasword)
         .then((res) => {
-          // console.log(res);
+          // console.log(res, "adasd");
+
+          // const initialValue = JSON.parse(saved);
+
           if (res.ok) {
-            history.push("/bookings");
-          }else if(!res) {
+            const saved = localStorage.getItem("role");
+            const initialValue = JSON.parse(saved);
+            console.log(initialValue, typeof(initialValue), typeof("ADMIN"), initialValue == "ADMIN");
+            // if (initialValue == "ADMIN") {
+            //   console.log("entro al admin");
+            //   history.push("/bookings-admin");
+            // }
+            if (initialValue == "USER") {
+              console.log("entro al user");
+              history.push("/bookings");
+            } else if (initialValue == "CONTADOR") {
+              console.log("entro al contador");
+              history.push("/bookings");
+            } else if (initialValue == "ADMIN") {
+              console.log("entro al admin");
+              history.push("/bookings-admin");
+
+            }
+          } else if (!res) {
             worngLogin();
           }
         })
@@ -72,8 +93,7 @@ const Login = () => {
                 placeholder="******************"
                 onChange={(e) => setPasword(e.target.value)}
               />
-              <p class="text-white text-xs italic">
-              </p>
+              <p class="text-white text-xs italic"></p>
             </div>
             <div class="flex items-center justify-between">
               <button
