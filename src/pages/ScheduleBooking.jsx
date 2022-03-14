@@ -7,7 +7,7 @@ import {
   Step3,
   // StepIndicator,
 } from "../components/scheduleBooking/";
-import { getToken, RegisterBooking, topics, logout, areas } from "../services/";
+import { getToken, RegisterBookingUser, topics, logout, areas } from "../services/";
 import { notPresentToken } from "../helpers";
 import moment from "moment";
 
@@ -49,7 +49,7 @@ const ScheduleBooking = () => {
   const senBooking = () => {
     // let concatDate = moment(date);
     // console.log(concatDate);
-    RegisterBooking(
+    RegisterBookingUser(
       userId,
       topic,
       // "nombrePruebaHardcodeado2",
@@ -62,7 +62,7 @@ const ScheduleBooking = () => {
     )
       .then((res) => {
         // console.log(res);
-        if (res.status === 201) {
+        if (res.status === 200) {
           history.push("/bookings");
         } else {
           history.push("/");

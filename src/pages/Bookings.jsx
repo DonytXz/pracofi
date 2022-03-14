@@ -3,7 +3,7 @@ import { Booking } from "./";
 import moment from "moment";
 import { BookignsList } from "../components/bokings/";
 import { HeaderUser, GeneratePDF } from "../components/global/";
-import { getToken, getBookings } from "../services/";
+import { getToken, getBookingsUser } from "../services/";
 import { useHistory } from "react-router-dom";
 import { notPresentToken } from "../helpers";
 
@@ -21,6 +21,7 @@ const Bookings = () => {
   let is_lawyer;
   moment.locale("es");
   let currentDate = moment().format();
+  let userId = localStorage.getItem("id").toString();
   let newBookings = [];
   let oldBookings = [];
 
@@ -38,14 +39,15 @@ const Bookings = () => {
   }
 
   useEffect(() => {
-    getBookings()
+    console.log(userId, "User id");
+    getBookingsUser(userId)
       .then((res) => {
-        // console.log(res);
-        setBookings(res.data);
+        console.log(res);
+        setBookings(res.data.citas);
         setLoading(false);
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
       });
   }, []);
 
@@ -81,7 +83,7 @@ const Bookings = () => {
             </div>
             <div className="flex-grow h-0.5 bg-gray-300 mt-auto m-2"></div>
           </div>
-          {!loading? <BookignsList bookings={newBookings} /> : <></>}
+          {!loading ? <BookignsList bookings={newBookings} /> : <></>}
 
           <div className="space-x-4 flex h-14 inline-block flex-row mb-7">
             <div className="flex-grow-0 mt-auto">

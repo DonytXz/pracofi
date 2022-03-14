@@ -12,6 +12,21 @@ export const getBookings = () => {
   return response;
 };
 
+export const getBookingsUser = (id) => {
+  // console.log(id,"id on service");
+  // var decoded = decodeURI(id);
+
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.get(
+    `${process.env.REACT_APP_API_LOCAL}/${id.replace(/['"]+/g, '')}/citas`,
+    headers
+  );
+  return response;
+};
+
 export const getBookingsById = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
@@ -72,6 +87,49 @@ export const RegisterBooking = (
       "http://localhost:4201/registro_cita",
       {
         usuario,
+        motivo,
+        fecha_cita,
+        hora,
+        area,
+        rfc,
+      },
+      headers
+    )
+    .then((res) => {
+      // console.log(res);
+      // const name = res.data.usuario.name;
+      // const role = res.data.usuario.role;
+      // const name = res.data.usuario.name;
+      // const role = res.data.usuario.role;
+      // console.log(res.data.token);
+      //   if (res.status === 200) {
+      //     history.push("/login");
+      //   }
+      return res;
+    })
+    .catch((error) => {
+      // console.log(error);
+    });
+};
+
+export const RegisterBookingUser = (
+  id,
+  motivo,
+  fecha_cita,
+  hora,
+  area,
+  rfc,
+) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  // const history = useHistory();
+  return axios
+    .post(
+      "http://localhost:4201/registro_cita/"+id,
+      {
+
         motivo,
         fecha_cita,
         hora,

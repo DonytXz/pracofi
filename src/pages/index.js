@@ -1,4 +1,4 @@
-import ScheduleBooking from "./ScheduleBooking";
+import RegisterBookingUser from "./ScheduleBooking";
 import Bookings from "./Bookings";
 import Landing from "./Landing";
 import Login from "./Login";
@@ -11,9 +11,11 @@ import Users from "./Users";
 import EditUser from "./EditUser";
 import BookingsAdmin from "./BookingsAdmin";
 import EditBookignAdmin from "./EditBookignAdmin";
+import ScheduleBooking from "./ScheduleBooking"
 
 export {
   ScheduleBooking,
+  RegisterBookingUser,
   Bookings,
   Profile,
   Landing,
