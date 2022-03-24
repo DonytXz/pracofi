@@ -17,6 +17,7 @@ const BookingsAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [loadingUser, setLoadingUser] = useState(true);
+  const [flag, setFlag] = useState(false);
   // const [loading, setLoading] = useState(true);
 
   let is_lawyer;
@@ -48,7 +49,7 @@ const BookingsAdmin = () => {
       .catch((error) => {
         // console.log(error);
       });
-  }, []);
+  }, [flag]);
 
   if (!loading) oldOrNewDate(bookings, currentDate);
 
@@ -67,7 +68,7 @@ const BookingsAdmin = () => {
       <div id="pdf" className="w-full h-full">
         <HeaderAdmin />
         <GeneratePDF />
-        <List bookings={bookings}/>
+        <List setFlag={setFlag} bookings={bookings}/>
       </div>
     </>
   );

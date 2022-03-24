@@ -6,7 +6,7 @@ import Moment from "react-moment";
 import { deleteBookingById, getBookings } from "../../services/Bookings";
 
 const List = (props) => {
-  const { bookings } = props;
+  const { bookings, setFlag } = props;
   // const [state, setState] = useState([]);
   // const [flag, setFlag] = useState(false);
 
@@ -14,6 +14,7 @@ const List = (props) => {
     deleteBookingById(id)
       .then((res) => {
         // setFlag(true);
+        setFlag(true)
         return res;
       })
       .catch((error) => {
