@@ -7,7 +7,13 @@ import {
   Step3,
   // StepIndicator,
 } from "../components/scheduleBooking/";
-import { getToken, RegisterBookingUser, topics, logout, areas } from "../services/";
+import {
+  getToken,
+  RegisterBookingUser,
+  topics,
+  logout,
+  areas,
+} from "../services/";
 import { notPresentToken } from "../helpers";
 import moment from "moment";
 
@@ -24,6 +30,7 @@ const ScheduleBooking = () => {
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
+  const [role] = useState(localStorage.getItem("role").replaceAll('"', ""));
 
   const [loadingTopics, setLoadingTopics] = useState(true);
   const [areaLoading, setAreaLoading] = useState(true);
@@ -63,7 +70,13 @@ const ScheduleBooking = () => {
       .then((res) => {
         // console.log(res);
         if (res.status === 200) {
-          history.push("/bookings");
+          console.log(role);
+          if (role === "ADMIN") {
+            history.push("/bookings-admin");
+          } else {
+            history.push("/bookings");
+          }
+          // history.push("/bookings");
         } else {
           history.push("/");
         }
@@ -101,7 +114,7 @@ const ScheduleBooking = () => {
       .catch((error) => {
         // console.log(error);
       });
-      areas()
+    areas()
       .then((res) => {
         // console.log(res);
         setAreas(res.data);
@@ -160,7 +173,14 @@ const ScheduleBooking = () => {
             />
           )}
           {step2 && !step3 && <Step2 text={text} setTxt={setTxt} />}
-          {step3 && <Step3 setArea={setArea} areaData={areaData} areaLoading={areaLoading} setRfc={setRfc} />}
+          {step3 && (
+            <Step3
+              setArea={setArea}
+              areaData={areaData}
+              areaLoading={areaLoading}
+              setRfc={setRfc}
+            />
+          )}
           <div className="flex flex-row mt-auto p-6 ">
             <div className=" mr-auto ">
               {/* <button
