@@ -37,7 +37,7 @@ const Login = () => {
               history.push("/bookings");
             } else if (initialValue == "CONTADOR") {
               console.log("entro al contador");
-              history.push("/bookings");
+              history.push("/bookings-acountMan");
             } else if (initialValue == "ADMIN") {
               console.log("entro al admin");
               history.push("/bookings-admin");

@@ -5,9 +5,8 @@ import Trash from "../../assets/img/icons/trash.svg";
 import Moment from "react-moment";
 import { deleteBookingById, getBookings } from "../../services/Bookings";
 
-const List = (props) => {
+const MyBookingsAcountMan = (props) => {
   const { bookings, setFlag } = props;
-  let role = localStorage.getItem("role").replaceAll('"', "");
   // const [state, setState] = useState([]);
   // const [flag, setFlag] = useState(false);
 
@@ -133,20 +132,13 @@ const List = (props) => {
                           </td>
                           <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              {role === "ADMIN" ? (
-                                <>
-                                  <Link to={"/bookingDetailsAdmin"}>
-                                    <img src={Edit} alt="" />
-                                  </Link>
-                                  <div onClick={() => deleteBooking(item._id)}>
-                                    <img src={Trash} alt="" />
-                                  </div>
-                                </>
-                              ) : (
-                                <>
-                                <button>Tomar cita</button>
-                                </>
-                              )}
+                              <Link to={"/bookingDetailsAdmin"}>
+                                <img src={Edit} alt="" />
+                              </Link>
+                              <div onClick={() => deleteBooking(item._id)}>
+                                <img src={Trash} alt="" />
+                              </div>
+                              {/* <button>Tomar cita</button> */}
                             </div>
                           </td>
                         </tr>
@@ -163,4 +155,4 @@ const List = (props) => {
   );
 };
 
-export default List;
+export default MyBookingsAcountMan;
