@@ -12,7 +12,7 @@ export const getBookings = () => {
   return response;
 };
 
-export const editUser = () => {
+export const editUser = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
@@ -36,7 +36,7 @@ export const getUsers = () => {
   return response; 
 } 
 
-export const deleteUser = () => {
+export const deleteUser = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",

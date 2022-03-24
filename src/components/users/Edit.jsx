@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { success } from "../../helpers";
 import { editUser } from "../../services/Bookings";
 // EDITAR USUARIO
-
+const { id } = useParams();
 
 const Edit = () => {
 
@@ -11,18 +11,23 @@ const Edit = () => {
   const [role, setRole] = useState(""); 
   const [password, setPassword] = useState(""); 
 
-
+/* 
 const editarUsuario = () => {
-  editUser(nombre, email, role, password)
+// getUserById()
+  editUser(nombre, email, role, password, id)
   .then((res)=> {
     console.log(res, 'res editar usuario')
     success()
   })
   .catch((error) => {
-    // console.log(error);
+     console.log(error);
   });
   
-};
+}; */
+
+useEffect(() => {
+  getUse
+})
 
   return (
     <>
@@ -81,7 +86,7 @@ const editarUsuario = () => {
               />
             </div>
             <button 
-            onClick={editarUsuario}
+           // onClick={editarUsuario()}
              class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">
               Actualizar
             </button>

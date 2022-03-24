@@ -31,16 +31,17 @@ const List = () => {
         });
     }, []);  
 
-    const DeleteUser = async () => {
-/*       deleteUser(id)
+    const DeleteUser =  (id) => {
+      deleteUser(id)
       .then((res) => {
         console.log(res, 'RES');
         deleteUsuario()
+        getUsers()
      })
      .catch((error) => {
        console.log(error, 'ERROR');
       fakeDeleteUser(); 
-     });  */
+     }); 
   }
    
   return (
@@ -113,10 +114,10 @@ const List = () => {
                           </td>
                           <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              <Link to={"/edit-user"}>
+                              <Link to={`/edit-user?${item._id}`}>
                                 <img src={Edit} alt="" />
                               </Link>
-                              <img src={Trash} onClick={DeleteUser(item.id) } alt="" />
+                              <img src={Trash} onClick={() => DeleteUser(item._id)} alt="" />
                             </div>
                           </td>
                         </tr>
