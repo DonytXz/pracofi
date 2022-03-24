@@ -57,7 +57,7 @@ export const getBookingsUser = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/${id.replace(/['"]+/g, '')}/citas`,
+    `${process.env.REACT_APP_API_LOCAL}/${id.replace(/['"]+/g, "")}/citas`,
     headers
   );
   return response;
@@ -101,7 +101,10 @@ export const clear = (id) => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
-  const response = axios.delete(`${process.env.REACT_APP_API_LOCAL}/citas/${id}`, headers);
+  const response = axios.delete(
+    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    headers
+  );
   return response;
 };
 
@@ -154,7 +157,7 @@ export const RegisterBookingUser = (
   fecha_cita,
   hora,
   area,
-  rfc,
+  rfc
 ) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
@@ -163,9 +166,8 @@ export const RegisterBookingUser = (
   // const history = useHistory();
   return axios
     .post(
-      "http://localhost:4201/registro_cita/"+id,
+      "http://localhost:4201/registro_cita/" + id,
       {
-
         motivo,
         fecha_cita,
         hora,
@@ -233,4 +235,16 @@ export const UpdateBooking = (
     .catch((error) => {
       // console.log(error);
     });
+};
+
+export const deleteBookingById = (id) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  };
+  const response = axios.delete(
+    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    headers
+  );
+  return response;
 };

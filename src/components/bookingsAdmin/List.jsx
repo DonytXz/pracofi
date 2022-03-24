@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Edit from "../../assets/img/icons/edit.svg";
 import Trash from "../../assets/img/icons/trash.svg";
 import Moment from "react-moment";
+import { deleteBookingById, getBookings } from "../../services/Bookings";
 
 const List = (props) => {
   const { bookings } = props;
-  console.log(bookings);
+  // const [state, setState] = useState([]);
+  // const [flag, setFlag] = useState(false);
+
+  const deleteBooking = (id) => {
+    deleteBookingById(id)
+      .then((res) => {
+        // setFlag(true);
+        return res;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // useEffect(() => {
+  //   setState(bookings);
+  //   getBookings().then((res) => setState(res));
+  // }, [flag]);
 
   let arrary = [
     {
@@ -114,9 +132,11 @@ const List = (props) => {
                           <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
                               <Link to={"/bookingDetailsAdmin"}>
-                              <img src={Edit} alt="" />
+                                <img src={Edit} alt="" />
                               </Link>
-                              <img src={Trash} alt="" />
+                              <div onClick={() => deleteBooking(item._id)}>
+                                <img src={Trash} alt="" />
+                              </div>
                             </div>
                           </td>
                         </tr>
