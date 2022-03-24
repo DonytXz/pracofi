@@ -1,117 +1,122 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Edit from "../../assets/img/icons/edit.svg";
 import Trash from "../../assets/img/icons/trash.svg";
+import { deleteUser, getUsers } from "../../services/Bookings";
+import { deleteUsuario, fakeDeleteUser } from "../../helpers/Alerts";
 
+// EDIT USEER 
 const List = () => {
-  let arrary = [
-    {
-      name: "asd",
-      mail: "a@g.com",
-      rol: "cliente",
-    },
-    {
-      name: "asd2",
-      mail: "a@g.com",
-      rol: "cliente",
-    },
-    {
-      name: "asd3",
-      mail: "a@g.com",
-      rol: "cliente",
-    },
-  ];
+
+
+  const [user, setUser] = useState([]);
   function toggle(source) {
     console.log(source.target.checked);
-    let checkboxes = document.getElementsByClassName("checkbox-table");
+    let checkboxes = document.getElementsByClassNameName("checkbox-table");
     console.log(checkboxes);
     for (var i = 0, n = checkboxes.length; i < n; i++) {
       checkboxes[i].checked = source.target.checked;
     }
   }
+    useEffect(() => {
+      getUsers()
+        .then((res) => {
+          console.log(res.data?.result, 'MALLLLLLL, SSZUSER');
+          setUser(res.data.result);
+         
+          setLoading(false);
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }, []);  
 
+    const DeleteUser = async () => {
+/*       deleteUser(id)
+      .then((res) => {
+        console.log(res, 'RES');
+        deleteUsuario()
+     })
+     .catch((error) => {
+       console.log(error, 'ERROR');
+      fakeDeleteUser(); 
+     });  */
+  }
+   
   return (
     <>
-      <div class="max-w-2xl mx-auto">
-        <div class="flex flex-col">
-          <div class="overflow-x-aut  o shadow-md sm:rounded-lg">
-            <div class="inline-block min-w-full align-middle">
-              <div class="overflow-hidden ">
-                <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-                  <thead class="bg-gray-100 dark:bg-gray-700">
+      <div className="max-w-2xl mx-auto">
+        <div className="flex flex-col">
+          <div className="overflow-x-aut  o shadow-md sm:rounded-lg">
+            <div className="inline-block min-w-full align-middle">
+              <div className="overflow-hidden ">
+                <table className="pt-6 min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+                  <thead className="bg-gray-100 dark:bg-gray-700">
                     <tr>
-                      <th scope="col" class="p-4">
-                        <div class="flex items-center">
+                      <th scope="col" className="p-4">
+                        <div className="flex items-center">
                           {/* setSetCheckboxAll(e.target.checked) */}
-                          <input
-                            id="checkbox-all"
-                            type="checkbox"
-                            onClick={toggle}
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <label for="checkbox-all" class="sr-only">
-                            checkbox
-                          </label>
+                          
+                         
                         </div>
                       </th>
                       <th
                         scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                        className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
                         Nombre
                       </th>
                       <th
                         scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                        className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
                         Correo
                       </th>
                       <th
                         scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                        className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                       >
                         Rol
                       </th>
-                      <th scope="col" class="p-4">
-                        <span class="sr-only">Acciones</span>
+                      <th scope="col" className="p-4">
+                        <span className="sr-only">Acciones</span>
                       </th>
                     </tr>
                   </thead>
-                  <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                    {arrary.map((item, index, array) => {
+                  <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                    {user.map((item, index, array) => {
                       // let checkFlag = checkBoxAll;
-                      const [checked, setChecked] = useState();
+                      console.log(item, 'ITME');
+                     // const [checked, setChecked] = useState();
                       return (
-                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                          <td class="p-4 w-4">
-                            <div class="flex items-center">
-                              <input
+                        <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                          <td className="p-4 w-4">
+                            <div className="flex items-center">
+                        {/*       <input
                                 id="checkbox-table"
                                 type="checkbox"
                                 onClick={(e) => setChecked(e.target.checked)}
                                 checked={checked}
                                 className="checkbox-table w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                              />
-                              <label for="checkbox-table-1" class="sr-only">
-                                checkbox
-                              </label>
+                              /> */}
+                            
                             </div>
                           </td>
-                          <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {item.name}
+                          <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {item.nombre}
                           </td>
-                          <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                            {item.mail}
+                          <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+                            {item.email}
                           </td>
-                          <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {item.rol}
+                          <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {item.role}
                           </td>
-                          <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                          <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
                               <Link to={"/edit-user"}>
                                 <img src={Edit} alt="" />
                               </Link>
-                              <img src={Trash} alt="" />
+                              <img src={Trash} onClick={DeleteUser(item.id) } alt="" />
                             </div>
                           </td>
                         </tr>
@@ -127,5 +132,4 @@ const List = () => {
     </>
   );
 };
-
 export default List;
