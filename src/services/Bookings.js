@@ -69,6 +69,18 @@ export const getBookingsUser = (id) => {
   return response;
 };
 
+export const citaPut = (idUser, idCita) => {
+  let headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  }; 
+  const response = axios.put(
+    `${process.env.REACT_APP_API_LOCAL}/citas/asignar_contador/${idUser}/${idCita}`,
+    headers
+  ); 
+  return response; 
+}
+
 export const getBookingsById = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",

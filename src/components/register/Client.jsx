@@ -49,11 +49,11 @@ const Client = () => {
     <>
       <div class="bg-blue-dark shadow-md rounded p-8 flex flex-col m-auto w-10/12 h-2/3 lg:w-1/2 lg:h-3/4  mt-2">
         <div className="w-full lg:w-3/4 m-auto">
-          <span className="text-white text-xl mx-auto mb-1">
-            Registrarse como Cliente!
+          <span className="text-white text-xl mx-auto mb-1 ">
+            Registrarse como Cliente
           </span>
           <div class="mb-4">
-            <label class="block text-white text-sm font-bold mb-2" for="Name">
+            <label class="pt-4 block text-white text-sm font-bold mb-2" for="Name">
               Nombre
             </label>
             <input
@@ -131,13 +131,13 @@ const Client = () => {
               onClick={submit}
               class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
             >
-              Registrar
+              Registrarse
             </button>
             <Link
               to="/login"
               class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
             >
-              inicia sesion con una cuenta
+              Iniciar Sesión
             </Link>
           </div>
         </div>

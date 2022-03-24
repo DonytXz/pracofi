@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import Edit from "../../assets/img/icons/edit.svg";
 import Trash from "../../assets/img/icons/trash.svg";
 import Moment from "react-moment";
-import { deleteBookingById, getBookings } from "../../services/Bookings";
+import { deleteBookingById, citaPut } from "../../services/Bookings";
+import { success } from "../../helpers/Alerts";
+
 
 const List = (props) => {
   const { bookings, setFlag } = props;
+  let idUser = localStorage.getItem("id").replaceAll('"', "");
   let role = localStorage.getItem("role").replaceAll('"', "");
   // const [state, setState] = useState([]);
   // const [flag, setFlag] = useState(false);
@@ -23,10 +26,17 @@ const List = (props) => {
       });
   };
 
-  // useEffect(() => {
-  //   setState(bookings);
-  //   getBookings().then((res) => setState(res));
-  // }, [flag]);
+const cita = (idCita) => {
+  citaPut(idUser,  idCita)
+  .then((res) => {
+    console.log(res);
+    success()
+  })
+  .catch((error) => {
+  console.log(error)
+  })
+  
+}
 
   let arrary = [
     {
@@ -144,7 +154,7 @@ const List = (props) => {
                                 </>
                               ) : (
                                 <>
-                                <button>Tomar cita</button>
+                                <button className=" ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-base font-medium text-white bg-blue-dark bg-opacity-75 hover:bg-opacity-100" onClick={() => cita(item._id)}>Tomar cita</button>
                                 </>
                               )}
                             </div>

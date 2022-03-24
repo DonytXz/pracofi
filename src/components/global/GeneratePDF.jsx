@@ -12,7 +12,7 @@ const GeneratePDF = () => {
   return (
     <>
       <div className="flex flex-row w-full my-4">
-        <button className="mx-auto p-4 bg-blue-light text-white" onClick={print}>
+        <button className="mx-auto p-4 bg-blue-dark bg-opacity-75 hover:bg-opacity-100 text-white" onClick={print}>
           Generar PDF
         </button>
       </div>
