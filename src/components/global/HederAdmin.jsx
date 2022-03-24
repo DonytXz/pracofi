@@ -105,7 +105,7 @@ const HederAdmin = () => {
               </Link>
             </div>
 
-            <div
+            {/* <div
               onMouseOver={handleHoverSchedule}
               onMouseLeave={() => setHoverSchedule(false)}
               className={`bg-gray-200 w-full h-1/2 block ${
@@ -115,7 +115,7 @@ const HederAdmin = () => {
               <Link to="/scheduleBooking" className="block">
                 <p className="block text-center p-2">Agendar Cita</p>
               </Link>
-            </div>
+            </div> */}
 
             <div
               onMouseOver={handleHoverProfile}
