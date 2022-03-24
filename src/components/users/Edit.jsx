@@ -1,33 +1,33 @@
-import React, { useEffect, useState, useParams } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { success } from "../../helpers";
 import { editUser } from "../../services/Bookings";
 // EDITAR USUARIO
-//const { id } = useParams();
 
 const Edit = () => {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [password, setPassword] = useState("");
+  const { id } = useParams();
 
-  const [nombre, setNombre] = useState(""); 
-  const [email, setEmail] = useState(""); 
-  const [role, setRole] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const editarUsuario = (e) => {
+    // getUserById()
+    e.preventDefault();
+    // console.log("asdasd");
+    editUser(nombre, email, role, password, id)
+      .then((res) => {
+        console.log(res, "res editar usuario");
+        success();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-
-const editarUsuario = () => {
-// getUserById()
-  editUser(nombre, email, role, password, id)
-  .then((res)=> {
-    console.log(res, 'res editar usuario')
-    success()
-  })
-  .catch((error) => {
-     console.log(error);
-  });
-  
-};
-
-useEffect(() => {
-  getUse
-})
+  // useEffect(() => {
+  //   getUse
+  // })
 
   return (
     <>
@@ -75,7 +75,7 @@ useEffect(() => {
               />
             </div>
             <div className="flex flex-row justify-between">
-              <label for="email"  class="font-bold text-lx ">
+              <label for="email" class="font-bold text-lx ">
                 Contraseña:
               </label>
               <input
@@ -85,9 +85,10 @@ useEffect(() => {
                 class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <button 
-            onClick={editarUsuario()}
-             class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">
+            <button
+              onClick={(e) => {editarUsuario(e)}}
+              class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  "
+            >
               Actualizar
             </button>
           </div>

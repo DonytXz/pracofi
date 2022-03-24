@@ -12,41 +12,47 @@ export const getBookings = () => {
   return response;
 };
 
-export const editUser = (id) => {
+export const editUser = (nombre, email, role, password, id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  }
+  };
   const response = axios.put(
     `${process.env.REACT_APP_API_LOCAL}/user/edit/${id}`,
+    {
+      nombre,
+      password,
+      email,
+      role,
+    },
     headers
-  )
-  return response; 
-}
+  );
+  return response;
+};
 
 export const getUsers = () => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  }
+  };
   const response = axios.get(
     `${process.env.REACT_APP_API_LOCAL}/mostrar_usuarios`,
     headers
-  )
-  return response; 
-} 
+  );
+  return response;
+};
 
 export const deleteUser = (id) => {
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  }
+  };
   const response = axios.delete(
     `${process.env.REACT_APP_API_LOCAL}/user/${id}`,
     headers
-  )
-  return response; 
-}
+  );
+  return response;
+};
 
 export const getBookingsUser = (id) => {
   // console.log(id,"id on service");

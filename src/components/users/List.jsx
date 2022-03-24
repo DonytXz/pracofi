@@ -114,7 +114,7 @@ const List = () => {
                           </td>
                           <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <div className="flex flex-row">
-                              <Link to={`/edit-user?${item._id}`}>
+                              <Link to={`/edit-user/${item._id}`}>
                                 <img src={Edit} alt="" />
                               </Link>
                               <img src={Trash} onClick={() => DeleteUser(item._id)} alt="" />
