@@ -13,7 +13,9 @@ import {
   Users,
   EditUser,
   BookingsAdmin,
-  EditBookignAdmin
+  EditBookignAdmin,
+  BookingsAcoutnMan,
+  MyBookingsAcoutnMan,
 } from "../pages";
 
 function App() {
@@ -58,6 +60,12 @@ function App() {
           </Route>
           <Route path="/bookingDetails_acountMan">
             <AcountManBookingDetail />
+          </Route>
+          <Route path="/bookings-acountMan">
+            <BookingsAcoutnMan />
+          </Route>
+          <Route path="/my-bookings-acountMan">
+            <MyBookingsAcoutnMan />
           </Route>
           <Route path="/registerAcoutnMan">
             <RegisterAcoutnMan />

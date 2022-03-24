@@ -11,7 +11,9 @@ import Users from "./Users";
 import EditUser from "./EditUser";
 import BookingsAdmin from "./BookingsAdmin";
 import EditBookignAdmin from "./EditBookignAdmin";
-import ScheduleBooking from "./ScheduleBooking"
+import ScheduleBooking from "./ScheduleBooking";
+import BookingsAcoutnMan from "./BookingsAcoutnMan";
+import MyBookingsAcoutnMan from "./MyBookingsAcoutnMan";
 
 export {
   ScheduleBooking,
@@ -27,5 +29,7 @@ export {
   Users,
   EditUser,
   BookingsAdmin,
-  EditBookignAdmin
+  EditBookignAdmin,
+  BookingsAcoutnMan,
+  MyBookingsAcoutnMan,
 };
