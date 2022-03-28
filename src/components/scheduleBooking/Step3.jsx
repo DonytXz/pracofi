@@ -42,7 +42,7 @@ const Step3 = (props) => {
                 No
               </button>
             </div> */}
-            <label class="block text-white mx-auto text-xl mb-2" for="cus_name">
+            <label className="block text-white mx-auto text-xl mb-2" htmlFor="cus_name">
               Area
             </label>
             <select
@@ -76,11 +76,11 @@ const Step3 = (props) => {
                   ))
                 )} */}
             </select>
-            <label class="block text-white mx-auto text-xl my-2" for="cus_name">
+            <label className="block text-white mx-auto text-xl my-2" htmlFor="cus_name">
               RFC
             </label>
             <input
-              class="w-full px-5 py-1 text-gray-700  rounded"
+              className="w-full px-5 py-1 text-gray-700  rounded"
               id="cus_name"
               name="cus_name"
               type="text"

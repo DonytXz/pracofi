@@ -90,7 +90,7 @@ const List = () => {
                       console.log(item, 'ITME');
                      // const [checked, setChecked] = useState();
                       return (
-                        <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                           <td className="p-4 w-4">
                             <div className="flex items-center">
                         {/*       <input

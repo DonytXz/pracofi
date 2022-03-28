@@ -128,8 +128,8 @@ const Edit = () => {
   return (
     <div>
       <div className="w-10/12 lg:w-2/3 flex flex-col mx-auto mt-4">
-        <div class="mt-2">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             Area
           </label>
           <select
@@ -164,12 +164,12 @@ const Edit = () => {
                 )} */}
           </select>
         </div>
-        <div class="mt-2 flex flex-col">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2 flex flex-col">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             <span className="d">Fecha</span>
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             type="date"
             id="start"
             name="trip-start"
@@ -177,8 +177,8 @@ const Edit = () => {
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             Elige un horario
           </label>
           <input
@@ -191,17 +191,17 @@ const Edit = () => {
             // value={values.booking_time}
             // onChange={handleChange}
             // onBlur={handleBlur}
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             onChange={(e) => setDateTime(e.target.value)}
           />
         </div>
-        <div class="mt-2 flex flex-col">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2 flex flex-col">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             Motivo
           </label>
           <select
             name="reason"
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             // value={values.reason}
             // onChange={handleChange}
             // onBlur={handleBlur}
@@ -231,12 +231,12 @@ const Edit = () => {
                 )} */}
           </select>
         </div>
-        <div class="mt-2">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             RFC
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             id="cus_email"
             name="cus_email"
             type="text"
@@ -246,7 +246,7 @@ const Edit = () => {
             onChange={(e) => setRfc(e.target.value)}
           />
         </div>
-        <button onClick={sendUpdate} class="p-4 bg-blue-dark my-2 text-white">
+        <button onClick={sendUpdate} className="p-4 bg-blue-dark my-2 text-white">
           Editar
         </button>
       </div>

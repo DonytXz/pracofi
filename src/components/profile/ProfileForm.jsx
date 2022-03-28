@@ -61,14 +61,14 @@ const ProfileForm = () => {
 
   return (
     <>
-      <div class="w-10/12 lg:w-1/2 mx-auto p-10 bg-white rounded shadow-xl">
-        <p class="text-gray-800 font-medium mb-4">Datos prersonales</p>
-        <div class="">
-          <label class="block text-sm text-gray-600" for="cus_name">
+      <div className="w-10/12 lg:w-1/2 mx-auto p-10 bg-white rounded shadow-xl">
+        <p className="text-gray-800 font-medium mb-4">Datos prersonales</p>
+        <div className="">
+          <label className="block text-sm text-gray-600" htmlFor="cus_name">
             Nombre
           </label>
           <input
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             // id="cus_name"
             // name="cus_name"
             type="text"
@@ -78,12 +78,12 @@ const ProfileForm = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class="block text-sm text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className="block text-sm text-gray-600" htmlFor="cus_email">
             Correo electronico
           </label>
           <input
-            class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded"
             // id="cus_email"
             // name="cus_email"
             type="text"
@@ -93,12 +93,12 @@ const ProfileForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class=" block text-sm text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className=" block text-sm text-gray-600" htmlFor="cus_email">
             Address
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             // id="cus_email"
             // name="cus_email"
             type="text"
@@ -108,12 +108,12 @@ const ProfileForm = () => {
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class=" text-sm block text-gray-600" for="cus_email">
+        <div className="mt-2">
+          <label className=" text-sm block text-gray-600" htmlFor="cus_email">
             area
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             // id="cus_email"
             // name="cus_email"
             type="text"
@@ -123,12 +123,12 @@ const ProfileForm = () => {
             onChange={(e) => setCity(e.target.value)}
           />
         </div>
-        <div class="inline-block mt-2 w-1/2 pr-1">
-          <label class=" block text-sm text-gray-600" for="cus_email">
+        <div className="inline-block mt-2 w-1/2 pr-1">
+          <label className=" block text-sm text-gray-600" htmlFor="cus_email">
             Country
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             // id="cus_email"
             // name="cus_email"
             type="text"
@@ -138,12 +138,12 @@ const ProfileForm = () => {
             onChange={(e) => setCountry(e.target.value)}
           />
         </div>
-        <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
-          <label class=" block text-sm text-gray-600" for="cus_email">
+        <div className="inline-block mt-2 -mx-1 pl-1 w-1/2">
+          <label className=" block text-sm text-gray-600" htmlFor="cus_email">
             Municipio
           </label>
           <input
-            class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
             // id="cus_email"
             // name="cus_email"
             type="text"
@@ -153,12 +153,12 @@ const ProfileForm = () => {
             onChange={(e) => setZip(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class="block text-sm text-gray-600" for="cus_name">
+        <div className="mt-2">
+          <label className="block text-sm text-gray-600" htmlFor="cus_name">
             Phone
           </label>
           <input
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             // id="cus_name"
             // name="cus_name"
@@ -169,12 +169,12 @@ const ProfileForm = () => {
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <div class="mt-2">
-          <label class="block text-sm text-gray-600" for="cus_name">
+        <div className="mt-2">
+          <label className="block text-sm text-gray-600" htmlFor="cus_name">
             Ocupacion
           </label>
           <input
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             // id="cus_name"
             // name="cus_name"

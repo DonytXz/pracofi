@@ -16,14 +16,14 @@ const Menu = (props) => {
       />
       <nav className="hidden lg:block">
         <ul className="lg:grid grid-cols-4 gap-2 h-full place-content-center justify-items-center">
-          <li class="text-white">
+          <li className="text-white">
             <Link to="/" className="uppercase font-semibold hover:text-blue-dark">
               Home
             </Link>
           </li >
           {isLanding && (
             <>
-              <li class="text-white">
+              <li className="text-white">
                 <Link
                   to={{ pathname: "/", hash: "#about" }}
                   className="uppercase font-semibold hover:text-blue-dark"
@@ -31,7 +31,7 @@ const Menu = (props) => {
                   quienes somos
                 </Link>
               </li>
-              <li class="text-white">
+              <li className="text-white">
                 <Link
                   to={{ pathname: "/", hash: "#contact" }}
                   className="uppercase font-semibold hover:text-blue-dark"

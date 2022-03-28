@@ -62,42 +62,42 @@ const Login = () => {
     <>
       <div className="w-screen h-full min-h-screen flex flex-col bg-white">
         <HeaderForms />
-        <div class="bg-blue-dark shadow-md rounded p-8 flex flex-col mx-auto w-10/12  lg:w-1/2 h-full mb-auto ">
+        <div className="bg-blue-dark shadow-md rounded p-8 flex flex-col mx-auto w-10/12  lg:w-1/2 h-full mb-auto ">
           <div className="w-full lg:w-3/4 m-auto">
-            <div class="mb-4">
+            <div className="mb-4">
               <label
-                class="block text-white text-sm font-bold mb-2"
-                for="username"
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="username"
               >
                 Correo Resgistrado
               </label>
               <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-black"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-black"
                 id="username"
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                class="block text-white text-sm font-bold mb-2"
-                for="password"
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="password"
               >
                 Contraseña
               </label>
               <input
-                class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-black mb-3"
+                className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-black mb-3"
                 id="password"
                 type="password"
                 placeholder="******************"
                 onChange={(e) => setPasword(e.target.value)}
               />
-              <p class="text-white text-xs italic"></p>
+              <p className="text-white text-xs italic"></p>
             </div>
-            <div class="flex items-center justify-between">
+            <div className="flex items-center justify-between">
               <button
-                class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
+                className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
                 type="button"
                 onClick={submit}
               >
@@ -105,7 +105,7 @@ const Login = () => {
               </button>
               <Link
                 to="/register"
-                class="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
+                className="inline-block align-baseline font-bold text-sm text-white hover:text-blue-darker"
               >
                 ¿Deseas crear una cuenta?
               </Link>

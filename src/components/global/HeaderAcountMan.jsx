@@ -39,7 +39,7 @@ const HeaderAcountMan = () => {
   return (
     <>
       <div className="flex flex-row w-11/12 mx-auto my-2">
-        <img className="h-24 my-auto" src={Logo} alt="" srcset="" />
+        <img className="h-24 my-auto" src={Logo} alt="" srcSet="" />
         <div className="w-full flex flex-row lg:hidden">
           <button
             type="button"
@@ -67,14 +67,14 @@ const HeaderAcountMan = () => {
 
         <div className="hidden lg:block md:w-6/12 lg:w-4/12 xl:w-3/12 ml-auto my-auto">
           <div className="inline-block w-32 mr-10">
-            <Link
+            <div
               onClick={handleDropDwn}
               onMouseOver={handleDropDwn}
               className=" w-full overflow-hidden focus:outline-none ml-8 whitespace-nowrap inline-flex items-center justify-center px-0.5 py-2 border border-transparent shadow-sm text-base font-medium text-white bg-mattBlack bg-opacity-75 hover:bg-opacity-100"
             >
               Mi Cuenta
               {/* <img className="ml-2 w-3 h-3" src={ArrowDonw} alt="" /> */}
-            </Link>
+            </div>
           </div>
 
           <div className="inline-block w-32">

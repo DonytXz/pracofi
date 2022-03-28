@@ -32,14 +32,14 @@ const Edit = () => {
   return (
     <>
       <form>
-        {/* <div class="bg-indigo-50 min-h-screen md:px-20 pt-6"> */}
-        <div class=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto flex flex-col">
-          <h1 class="text-center text-2xl font-bold text-gray-500 mb-10">
+        {/* <div className="bg-indigo-50 min-h-screen md:px-20 pt-6"> */}
+        <div className=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto flex flex-col">
+          <h1 className="text-center text-2xl font-bold text-gray-500 mb-10">
             Editar usuario
           </h1>
-          <div class="space-y-4 mx-auto">
+          <div className="space-y-4 mx-auto">
             <div className="flex flex-row justify-between">
-              <label for="title" class="font-bold text-lx">
+              <label for="title" className="font-bold text-lx">
                 Nombre:
               </label>
               <input
@@ -47,11 +47,11 @@ const Edit = () => {
                 placeholder=""
                 onChange={(e) => setNombre(e.target.value)}
                 id="title"
-                class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
+                className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div className="flex flex-row justify-between">
-              <label itemType="email" for="name" class="font-bold text-lx ">
+            <div classNameName="flex flex-row justify-between">
+              <label itemType="email" for="name" className="font-bold text-lx ">
                 Correo:
               </label>
               <input
@@ -59,11 +59,11 @@ const Edit = () => {
                 placeholder=""
                 onChange={(e) => setEmail(e.target.value)}
                 id="name"
-                class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
+                className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div className="flex flex-row justify-between">
-              <label for="name" class="font-bold text-lx ">
+            <div classNameName="flex flex-row justify-between">
+              <label for="name" className="font-bold text-lx ">
                 Rol:
               </label>
               <input
@@ -71,23 +71,23 @@ const Edit = () => {
                 placeholder=""
                 id="role"
                 onChange={(e) => setRole(e.target.value)}
-                class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
+                className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div className="flex flex-row justify-between">
-              <label for="email" class="font-bold text-lx ">
+            <div classNameName="flex flex-row justify-between">
+              <label for="email" className="font-bold text-lx ">
                 Contraseña:
               </label>
               <input
                 placeholder=""
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
-                class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
+                className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
             <button
               onClick={(e) => {editarUsuario(e)}}
-              class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  "
+              className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  "
             >
               Actualizar
             </button>
