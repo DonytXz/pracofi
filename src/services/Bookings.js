@@ -70,6 +70,7 @@ export const getBookingsUser = (id) => {
 };
 
 export const citaPut = (idUser, idCita) => {
+  console.log(idUser, idCita);
   let headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",

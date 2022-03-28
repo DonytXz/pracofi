@@ -71,7 +71,7 @@ const Edit = () => {
       .then((res) => {
         // console.log(res);
         if (res.status === 204) {
-          history.push("/bookings");
+          history.push("/bookings-admin");
           success();
         }
       })

@@ -145,7 +145,7 @@ const cita = (idCita) => {
                             <div className="flex flex-row">
                               {role === "ADMIN" ? (
                                 <>
-                                  <Link to={"/bookingDetailsAdmin"}>
+                                  <Link to={`/bookingDetailsAdmin${item._id}`}>
                                     <img src={Edit} alt="" />
                                   </Link>
                                   <div onClick={() => deleteBooking(item._id)}>

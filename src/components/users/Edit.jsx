@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { success } from "../../helpers";
 import { editUser } from "../../services/Bookings";
+import { useHistory } from "react-router-dom";
 // EDITAR USUARIO
 
 const Edit = () => {
@@ -10,6 +11,7 @@ const Edit = () => {
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const { id } = useParams();
+  const history = useHistory();
 
   const editarUsuario = (e) => {
     // getUserById()
@@ -18,6 +20,7 @@ const Edit = () => {
     editUser(nombre, email, role, password, id)
       .then((res) => {
         console.log(res, "res editar usuario");
+        history.push("/users");
         success();
       })
       .catch((error) => {
@@ -39,7 +42,7 @@ const Edit = () => {
           </h1>
           <div className="space-y-4 mx-auto">
             <div className="flex flex-row justify-between">
-              <label for="title" className="font-bold text-lx">
+              <label htmlFor="title" className="font-bold text-lx">
                 Nombre:
               </label>
               <input
@@ -50,8 +53,8 @@ const Edit = () => {
                 className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div classNameName="flex flex-row justify-between">
-              <label itemType="email" for="name" className="font-bold text-lx ">
+            <div className="flex flex-row justify-between">
+              <label itemType="email" htmlFor="name" className="font-bold text-lx ">
                 Correo:
               </label>
               <input
@@ -62,8 +65,8 @@ const Edit = () => {
                 className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div classNameName="flex flex-row justify-between">
-              <label for="name" className="font-bold text-lx ">
+            <div className="flex flex-row justify-between">
+              <label htmlFor="name" className="font-bold text-lx ">
                 Rol:
               </label>
               <input
@@ -74,8 +77,8 @@ const Edit = () => {
                 className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
               />
             </div>
-            <div classNameName="flex flex-row justify-between">
-              <label for="email" className="font-bold text-lx ">
+            <div className="flex flex-row justify-between">
+              <label htmlFor="email" className="font-bold text-lx ">
                 Contraseña:
               </label>
               <input

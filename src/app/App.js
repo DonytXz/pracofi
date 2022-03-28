@@ -55,7 +55,7 @@ function App() {
           <Route path="/bookingDetails/:id">
             <BookingDetail />
           </Route>
-          <Route path="/bookingDetailsAdmin">
+          <Route path="/bookingDetailsAdmin/:id">
             <EditBookignAdmin />
           </Route>
           <Route path="/bookingDetails_acountMan">
