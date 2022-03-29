@@ -19,7 +19,7 @@ const List = (props) => {
       .then((res) => {
         // setFlag(true);
         setFlag(true);
-        return res;
+        // return res;
       })
       .catch((error) => {
         console.log(error);
@@ -145,7 +145,7 @@ const cita = (idCita) => {
                             <div className="flex flex-row">
                               {role === "ADMIN" ? (
                                 <>
-                                  <Link to={`/bookingDetailsAdmin${item._id}`}>
+                                  <Link to={`/bookingDetailsAdmin/${item._id}`}>
                                     <img src={Edit} alt="" />
                                   </Link>
                                   <div onClick={() => deleteBooking(item._id)}>
