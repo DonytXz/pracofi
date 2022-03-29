@@ -6,7 +6,6 @@ import Moment from "react-moment";
 import { deleteBookingById, citaPut } from "../../services/Bookings";
 import { success } from "../../helpers/Alerts";
 
-
 const List = (props) => {
   const { bookings, setFlag } = props;
   let idUser = localStorage.getItem("id").replaceAll('"', "");
@@ -18,7 +17,11 @@ const List = (props) => {
     deleteBookingById(id)
       .then((res) => {
         // setFlag(true);
-        setFlag(true);
+        if (res.status === 200) {
+          setFlag(true);
+          success();
+        }
+        // setFlag(true);
         // return res;
       })
       .catch((error) => {
@@ -26,17 +29,16 @@ const List = (props) => {
       });
   };
 
-const cita = (idCita) => {
-  citaPut(idUser,  idCita)
-  .then((res) => {
-    console.log(res);
-    success()
-  })
-  .catch((error) => {
-  console.log(error)
-  })
-  
-}
+  const cita = (idCita) => {
+    citaPut(idUser, idCita)
+      .then((res) => {
+        console.log(res);
+        success();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   let arrary = [
     {
@@ -115,7 +117,10 @@ const cita = (idCita) => {
                       // let checkFlag = checkBoxAll;
                       const [checked, setChecked] = useState();
                       return (
-                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr
+                          key={item._id}
+                          className="hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
                           <td className="p-4 w-4">
                             <div className="flex items-center">
                               <input
@@ -125,7 +130,10 @@ const cita = (idCita) => {
                                 checked={checked}
                                 className="checkbox-table w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                               />
-                              <label htmlFor="checkbox-table-1" className="sr-only">
+                              <label
+                                htmlFor="checkbox-table-1"
+                                className="sr-only"
+                              >
                                 checkbox
                               </label>
                             </div>
@@ -154,7 +162,12 @@ const cita = (idCita) => {
                                 </>
                               ) : (
                                 <>
-                                <button className=" ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-base font-medium text-white bg-blue-dark bg-opacity-75 hover:bg-opacity-100" onClick={() => cita(item._id)}>Tomar cita</button>
+                                  <button
+                                    className=" ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-base font-medium text-white bg-blue-dark bg-opacity-75 hover:bg-opacity-100"
+                                    onClick={() => cita(item._id)}
+                                  >
+                                    Tomar cita
+                                  </button>
                                 </>
                               )}
                             </div>
