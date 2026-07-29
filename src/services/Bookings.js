@@ -6,7 +6,7 @@ export const getBookings = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/mostrar_citas`,
+    `${import.meta.env.VITE_API_LOCAL}/mostrar_citas`,
     headers
   );
   return response;
@@ -18,7 +18,7 @@ export const editUser = (nombre, email, role, password, id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.put(
-    `${process.env.REACT_APP_API_LOCAL}/user/edit/${id}`,
+    `${import.meta.env.VITE_API_LOCAL}/user/edit/${id}`,
     {
       nombre,
       password,
@@ -36,7 +36,7 @@ export const getUsers = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/mostrar_usuarios`,
+    `${import.meta.env.VITE_API_LOCAL}/mostrar_usuarios`,
     headers
   );
   return response;
@@ -48,7 +48,7 @@ export const deleteUser = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.delete(
-    `${process.env.REACT_APP_API_LOCAL}/user/${id}`,
+    `${import.meta.env.VITE_API_LOCAL}/user/${id}`,
     headers
   );
   return response;
@@ -63,7 +63,7 @@ export const getBookingsUser = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/${id.replace(/['"]+/g, "")}/citas`,
+    `${import.meta.env.VITE_API_LOCAL}/${id.replace(/['"]+/g, "")}/citas`,
     headers
   );
   return response;
@@ -76,7 +76,7 @@ export const citaPut = (idUser, idCita) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   }; 
   const response = axios.put(
-    `${process.env.REACT_APP_API_LOCAL}/citas/asignar_contador/${idUser}/${idCita}`,
+    `${import.meta.env.VITE_API_LOCAL}/citas/asignar_contador/${idUser}/${idCita}`,
     headers
   ); 
   return response; 
@@ -88,7 +88,7 @@ export const getBookingsById = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
     headers
   );
   return response;
@@ -99,7 +99,7 @@ export const topics = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/motivos`,
+    `${import.meta.env.VITE_API_LOCAL}/motivos`,
     headers
   );
   return response;
@@ -110,7 +110,7 @@ export const areas = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/area`,
+    `${import.meta.env.VITE_API_LOCAL}/area`,
     headers
   );
   return response;
@@ -121,7 +121,7 @@ export const clear = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.delete(
-    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
     headers
   );
   return response;
@@ -262,7 +262,7 @@ export const deleteBookingById = (id) => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   };
   const response = axios.delete(
-    `${process.env.REACT_APP_API_LOCAL}/citas/${id}`,
+    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
     headers
   );
   return response;
