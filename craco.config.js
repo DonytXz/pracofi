@@ -1,11 +1,2 @@
-// craco.config.js
-module.exports = {
-    style: {
-      postcss: {
-        plugins: [
-          require('tailwindcss'),
-          require('autoprefixer'),
-        ],
-      },
-    },
-  }
+// CRA 5 loads Tailwind automatically when tailwind.config.js is present.
+module.exports = {};
