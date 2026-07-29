@@ -9,7 +9,7 @@ export const RegisterService = (nombre, email, password, role) => {
   // const history = useHistory();
   return axios
     .post(
-      ` ${process.env.REACT_APP_API_LOCAL}/register`,
+      ` ${import.meta.env.VITE_API_LOCAL}/register`,
       {
         nombre,
         email,

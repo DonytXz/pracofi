@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Booking } from "./";
 import moment from "moment";
 import { BookignsList } from "../components/bokings/";
 import { GeneratePDF, HeaderAcountMan } from "../components/global/";

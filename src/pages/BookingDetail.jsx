@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BookingCard } from "../components/bookingDetails/BookingCard";
 import { HeaderUser, GeneratePDF } from "../components/global/";
 import { getBookingsById, topics, UpdateBooking, clear,areas } from "../services/";
 import { useParams } from "react-router-dom";

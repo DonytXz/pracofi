@@ -53,7 +53,7 @@ export const getUsers = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   }
   const response = axios.get(
-    `${process.env.REACT_APP_API_LOCAL}/mostrar_usuarios`,
+    `${import.meta.env.VITE_API_LOCAL}/mostrar_usuarios`,
     headers
   )
   return response; 

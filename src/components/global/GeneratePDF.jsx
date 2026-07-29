@@ -1,5 +1,4 @@
 import React from "react";
-import { print } from "react-pdf-print";
 
 const GeneratePDF = () => {
   const print = () => {

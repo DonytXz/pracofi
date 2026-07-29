@@ -18,7 +18,7 @@ export const RegisterProfileData = (
   // const history = useHistory();
   return axios
     .post(
-      `${process.env.REACT_APP_API_LOCAL}/perfil`,
+      `${import.meta.env.VITE_API_LOCAL}/perfil`,
       {
         nombre,
         email,
