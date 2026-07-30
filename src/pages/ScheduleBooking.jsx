@@ -29,8 +29,12 @@ const ScheduleBooking = () => {
   const [rfc, setRfc] = useState("");
   const [step2, setstep2] = useState(false);
   const [step3, setStep3] = useState(false);
-  const [userId] = useState(localStorage.getItem("id").replaceAll('"', ""));
-  const [role] = useState(localStorage.getItem("role").replaceAll('"', ""));
+  const [userId] = useState(
+    (localStorage.getItem("id") ?? "").replaceAll('"', "")
+  );
+  const [role] = useState(
+    (localStorage.getItem("role") ?? "").replaceAll('"', "")
+  );
 
   const [loadingTopics, setLoadingTopics] = useState(true);
   const [areaLoading, setAreaLoading] = useState(true);

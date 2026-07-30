@@ -20,7 +20,7 @@ import {
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
       <Switch>

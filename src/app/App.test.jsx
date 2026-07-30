@@ -4,7 +4,7 @@ import App from "./App";
 
 describe("App", () => {
   it("renders the landing page at the root route", () => {
-    window.history.pushState({}, "", "/");
+    window.history.pushState({}, "", import.meta.env.BASE_URL);
 
     render(<App />);
 
