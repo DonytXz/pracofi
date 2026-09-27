@@ -5,7 +5,7 @@ const rawUrl =
   import.meta.env.VITE_API_URL ||
   import.meta.env.VITE_API_PROD ||
   import.meta.env.VITE_API_LOCAL ||
-  "https://pracofi-api.vercel.app";
+  "https://praacofi.vercel.app";
 
 // Clean trailing slash
 export const BASE_API_URL = rawUrl.replace(/\/+$/, "");
