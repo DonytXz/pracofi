@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import api from "../services/api";
 
 //ALERTSSSSSSSSSS
 export const notPresentToken = () => {
@@ -48,13 +49,5 @@ export const samePass = () => {
 };
 
 export const getUsers = () => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  }
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/mostrar_usuarios`,
-    headers
-  )
-  return response; 
-} 
+  return api.get("/mostrar_usuarios");
+}; 

@@ -18,6 +18,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          VITE_API_URL: https://pracofi-api.vercel.app
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:

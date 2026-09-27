@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "./api";
 
 export const RegisterProfileData = (
   nombre,
@@ -11,40 +11,20 @@ export const RegisterProfileData = (
   ocupacion,
   usuario
 ) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  // const history = useHistory();
-  return axios
-    .post(
-      `${import.meta.env.VITE_API_LOCAL}/perfil`,
-      {
-        nombre,
-        email,
-        direccion,
-        ciudad,
-        pais,
-        cp,
-        telefono,
-        ocupacion,
-        usuario,
-      },
-      headers
-    )
-    .then((res) => {
-      console.log(res);
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // console.log(res.data.token);
-      //   if (res.status === 200) {
-      //     history.push("/login");
-      //   }
-      return res;
+  return api
+    .post("/perfil", {
+      nombre,
+      email,
+      direccion,
+      ciudad,
+      pais,
+      cp,
+      telefono,
+      ocupacion,
+      usuario,
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+      throw error;
     });
 };

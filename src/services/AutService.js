@@ -1,15 +1,11 @@
-import axios from "axios";
+import api from "./api";
 
 export const login = (email, password) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  return axios
-    .post(`${import.meta.env.VITE_API_LOCAL}/login`, {
+  return api
+    .post("/login", {
       email,
       password,
-    },headers)
+    })
     .then((res) => {
       // console.log(res);
       const name = res.data.usuario.nombre;

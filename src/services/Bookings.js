@@ -1,130 +1,48 @@
-import axios from "axios";
+import api from "./api";
 
 export const getBookings = () => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/mostrar_citas`,
-    headers
-  );
-  return response;
+  return api.get("/mostrar_citas");
 };
 
 export const editUser = (nombre, email, role, password, id) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.put(
-    `${import.meta.env.VITE_API_LOCAL}/user/edit/${id}`,
-    {
-      nombre,
-      password,
-      email,
-      role,
-    },
-    headers
-  );
-  return response;
+  return api.put(`/user/edit/${id}`, {
+    nombre,
+    password,
+    email,
+    role,
+  });
 };
 
 export const getUsers = () => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/mostrar_usuarios`,
-    headers
-  );
-  return response;
+  return api.get("/mostrar_usuarios");
 };
 
 export const deleteUser = (id) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.delete(
-    `${import.meta.env.VITE_API_LOCAL}/user/${id}`,
-    headers
-  );
-  return response;
+  return api.delete(`/user/${id}`);
 };
 
 export const getBookingsUser = (id) => {
-  // console.log(id,"id on service");
-  // var decoded = decodeURI(id);
-
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/${id.replace(/['"]+/g, "")}/citas`,
-    headers
-  );
-  return response;
+  return api.get(`/${id.replace(/['"]+/g, "")}/citas`);
 };
 
 export const citaPut = (idUser, idCita) => {
-  console.log(idUser, idCita);
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  }; 
-  const response = axios.put(
-    `${import.meta.env.VITE_API_LOCAL}/citas/asignar_contador/${idUser}/${idCita}`,
-    headers
-  ); 
-  return response; 
-}
+  return api.put(`/citas/asignar_contador/${idUser}/${idCita}`);
+};
 
 export const getBookingsById = (id) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
-    headers
-  );
-  return response;
+  return api.get(`/citas/${id}`);
 };
+
 export const topics = () => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/motivos`,
-    headers
-  );
-  return response;
+  return api.get("/motivos");
 };
+
 export const areas = () => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.get(
-    `${import.meta.env.VITE_API_LOCAL}/area`,
-    headers
-  );
-  return response;
+  return api.get("/area");
 };
+
 export const clear = (id) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.delete(
-    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
-    headers
-  );
-  return response;
+  return api.delete(`/citas/${id}`);
 };
 
 export const RegisterBooking = (
@@ -135,38 +53,18 @@ export const RegisterBooking = (
   area,
   rfc
 ) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  // const history = useHistory();
-  return axios
-    .post(
-      "http://localhost:4201/registro_cita",
-      {
-        usuario,
-        motivo,
-        fecha_cita,
-        hora,
-        area,
-        rfc,
-      },
-      headers
-    )
-    .then((res) => {
-      // console.log(res);
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // console.log(res.data.token);
-      //   if (res.status === 200) {
-      //     history.push("/login");
-      //   }
-      return res;
+  return api
+    .post("/registro_cita", {
+      usuario,
+      motivo,
+      fecha_cita,
+      hora,
+      area,
+      rfc,
     })
     .catch((error) => {
-      // console.log(error);
+      console.error(error);
+      throw error;
     });
 };
 
@@ -178,37 +76,17 @@ export const RegisterBookingUser = (
   area,
   rfc
 ) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  // const history = useHistory();
-  return axios
-    .post(
-      "http://localhost:4201/registro_cita/" + id,
-      {
-        motivo,
-        fecha_cita,
-        hora,
-        area,
-        rfc,
-      },
-      headers
-    )
-    .then((res) => {
-      // console.log(res);
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // console.log(res.data.token);
-      //   if (res.status === 200) {
-      //     history.push("/login");
-      //   }
-      return res;
+  return api
+    .post(`/registro_cita/${id}`, {
+      motivo,
+      fecha_cita,
+      hora,
+      area,
+      rfc,
     })
     .catch((error) => {
-      // console.log(error);
+      console.error(error);
+      throw error;
     });
 };
 
@@ -221,49 +99,21 @@ export const UpdateBooking = (
   rfc,
   id
 ) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  // const history = useHistory();
-  return axios
-    .put(
-      `http://localhost:4201/modificar_cita/${id}`,
-      {
-        usuario,
-        motivo,
-        fecha_cita,
-        hora,
-        area,
-        rfc,
-      },
-      headers
-    )
-    .then((res) => {
-      // console.log(res);
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // const name = res.data.usuario.name;
-      // const role = res.data.usuario.role;
-      // console.log(res.data.token);
-      //   if (res.status === 200) {
-      //     history.push("/login");
-      //   }
-      return res;
+  return api
+    .put(`/modificar_cita/${id}`, {
+      usuario,
+      motivo,
+      fecha_cita,
+      hora,
+      area,
+      rfc,
     })
     .catch((error) => {
-      // console.log(error);
+      console.error(error);
+      throw error;
     });
 };
 
 export const deleteBookingById = (id) => {
-  let headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  };
-  const response = axios.delete(
-    `${import.meta.env.VITE_API_LOCAL}/citas/${id}`,
-    headers
-  );
-  return response;
+  return api.delete(`/citas/${id}`);
 };
