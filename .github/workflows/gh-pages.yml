@@ -23,6 +23,9 @@ jobs:
             unset VITE_API_URL
           fi
           npm run build
+          if [ ! -f ./dist/404.html ]; then
+            cp ./dist/index.html ./dist/404.html
+          fi
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
       - name: Deploy to gh-pages
