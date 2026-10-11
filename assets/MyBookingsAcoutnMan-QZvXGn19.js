@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DszzE2zX.js";import{t}from"./BookingWorkspace-BMGQvj5_.js";var n=e();function r(){return(0,n.jsx)(t,{scope:`assigned`})}export{r as default};
