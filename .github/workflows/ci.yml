@@ -15,8 +15,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      - run: npm ci
+          node-version: '22'
+      - run: |
+          node -v
+          npm -v
+          npm ci --verbose
       - run: npm run lint
       - run: npm run test:run
       - run: npm run build
