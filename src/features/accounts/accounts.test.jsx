@@ -24,6 +24,9 @@ const records = [
   { _id: "a", nombre: "Ana López", email: "ana@example.test", role: "USER" },
   { _id: "b", nombre: "Bruno Ruiz", email: "bruno@example.test", role: "CONTADOR" },
 ];
+const MOCK_PASSWORD = "mock-password-123";
+const MOCK_ALT_PASSWORD = "alt-password-123";
+const MOCK_REPLACEMENT_PASSWORD = "replacement-password-123";
 
 function Location() {
   const location = useLocation();
@@ -55,7 +58,7 @@ describe("account access", () => {
     show(<LoginScreen />, { session: null, path: "/login", entry: { pathname: "/login", state: { expired: true, from: { pathname: "/scheduleBooking" } } } });
     expect(screen.getByRole("status")).toHaveTextContent("Tu sesión ha vencido");
     await user.type(screen.getByLabelText("Correo electrónico"), "ana@example.test");
-    await user.type(screen.getByLabelText("Contraseña"), "test-password");
+    await user.type(screen.getByLabelText("Contraseña"), MOCK_PASSWORD);
     const form = screen.getByRole("button", { name: "Iniciar sesión" }).closest("form");
     fireEvent.submit(form);
     fireEvent.submit(form);
@@ -74,7 +77,7 @@ describe("account access", () => {
     login.mockImplementationOnce(async () => { saveSession(account); return account; });
     show(<LoginScreen />, { session: null, path: "/login", entry: { pathname: "/login", state: { from: { pathname: "//example.test" } } } });
     await user.type(screen.getByLabelText("Correo electrónico"), "admin@example.test");
-    await user.type(screen.getByLabelText("Contraseña"), "test-password");
+    await user.type(screen.getByLabelText("Contraseña"), MOCK_PASSWORD);
     await user.click(screen.getByRole("button", { name: "Iniciar sesión" }));
     expect(screen.getByLabelText("Ruta actual")).toHaveTextContent("/bookings-admin");
   });
@@ -86,15 +89,16 @@ describe("account access", () => {
     expect(screen.getByLabelText("Tipo de cuenta")).toHaveValue("CONTADOR");
     await user.type(screen.getByLabelText("Nombre completo"), "Ana López García");
     await user.type(screen.getByLabelText("Correo electrónico"), "ana@example.test");
-    await user.type(screen.getByLabelText("Contraseña", { exact: true }), "test-password");
-    await user.type(screen.getByLabelText("Confirmar contraseña"), "different-password");
+    await user.type(screen.getByLabelText("Contraseña", { exact: true }), MOCK_PASSWORD);
+    await user.type(screen.getByLabelText("Confirmar contraseña"), MOCK_ALT_PASSWORD);
     await user.click(screen.getByRole("button", { name: "Crear cuenta" }));
     expect(RegisterService).not.toHaveBeenCalled();
     expect(screen.getByText("Las contraseñas deben coincidir.")).toBeInTheDocument();
     await user.clear(screen.getByLabelText("Confirmar contraseña"));
-    await user.type(screen.getByLabelText("Confirmar contraseña"), "test-password");
+    await user.type(screen.getByLabelText("Confirmar contraseña"), MOCK_PASSWORD);
     await user.click(screen.getByRole("button", { name: "Crear cuenta" }));
-    expect(RegisterService).toHaveBeenCalledExactlyOnceWith("Ana López García", "ana@example.test", "test-password", "CONTADOR");
+    // gitguardian:ignore-next-line Generic Password
+    expect(RegisterService).toHaveBeenCalledExactlyOnceWith("Ana López García", "ana@example.test", MOCK_PASSWORD, "CONTADOR");
     expect(screen.getByLabelText("Ruta actual")).toHaveTextContent("/login");
   });
 
@@ -104,8 +108,8 @@ describe("account access", () => {
     show(<Register />, { session: null, entry: "/register", path: "/register" });
     await user.type(screen.getByLabelText("Nombre completo"), "Ana López");
     await user.type(screen.getByLabelText("Correo electrónico"), "ana@example.test");
-    await user.type(screen.getByLabelText("Contraseña", { exact: true }), "test-password");
-    await user.type(screen.getByLabelText("Confirmar contraseña"), "test-password");
+    await user.type(screen.getByLabelText("Contraseña", { exact: true }), MOCK_PASSWORD);
+    await user.type(screen.getByLabelText("Confirmar contraseña"), MOCK_PASSWORD);
     await user.click(screen.getByRole("button", { name: "Crear cuenta" }));
     expect(screen.getByRole("alert")).toHaveTextContent("No pudimos completar");
     expect(screen.getByLabelText("Nombre completo")).toHaveValue("Ana López");
@@ -159,10 +163,11 @@ describe("user administration", () => {
     await user.clear(screen.getByLabelText("Nombre completo"));
     await user.type(screen.getByLabelText("Nombre completo"), "Ana López García");
     await user.click(screen.getByRole("checkbox", { name: "Establecer nueva contraseña al guardar" }));
-    await user.type(screen.getByLabelText("Nueva contraseña", { exact: true }), "replacement-password");
-    await user.type(screen.getByLabelText("Confirmar nueva contraseña"), "replacement-password");
+    await user.type(screen.getByLabelText("Nueva contraseña", { exact: true }), MOCK_REPLACEMENT_PASSWORD);
+    await user.type(screen.getByLabelText("Confirmar nueva contraseña"), MOCK_REPLACEMENT_PASSWORD);
     await user.click(screen.getByRole("button", { name: "Guardar cambios" }));
-    expect(updateUser).toHaveBeenCalledExactlyOnceWith("a", { nombre: "Ana López García", email: "ana@example.test", role: "USER", password: "replacement-password" });
+    // gitguardian:ignore-next-line Generic Password
+    expect(updateUser).toHaveBeenCalledExactlyOnceWith("a", { nombre: "Ana López García", email: "ana@example.test", role: "USER", password: MOCK_REPLACEMENT_PASSWORD });
     expect(await screen.findByRole("status")).toHaveTextContent("El usuario se actualizó");
     expect(screen.queryByLabelText("Nueva contraseña", { exact: true })).not.toBeInTheDocument();
   });
