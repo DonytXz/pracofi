@@ -2,6 +2,7 @@
 // All mutations are in-memory; stopping this process discards them.
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
+import { randomUUID } from "node:crypto";
 
 const apiPort = 5175;
 const webPort = 5174;
@@ -10,6 +11,7 @@ const users = [
   { _id: "accountant-1", nombre: "Alex Rivera", email: "contador@example.test", role: "CONTADOR" },
   { _id: "admin-1", nombre: "Administración Demo", email: "admin@example.test", role: "ADMIN" },
 ];
+const passwords = new Map(users.map((user) => [user._id, "demo-pracofi"]));
 let bookings = [
   { _id: "booking-1", usuario: ["client-1"], motivo: "Asesoría fiscal", fecha_cita: "2030-11-18", hora: "10:30", area: "Fiscal", rfc: "" },
   { _id: "booking-2", usuario: ["client-1"], motivo: "Contabilidad", fecha_cita: "2030-11-19", hora: "16:00", area: "Contable", rfc: "" },
@@ -36,12 +38,14 @@ const server = createServer(async (request, response) => {
 
   if (request.method === "POST" && url.pathname === "/login") {
     const user = users.find((item) => item.email === body.email);
-    if (!user || body.password !== "demo-pracofi") { send(response, 401, { ok: false }); return; }
+    if (!user || typeof body.password !== "string" || !body.password || body.password !== passwords.get(user._id)) { send(response, 401, { ok: false }); return; }
     send(response, 200, { ok: true, token: `fixture-${user._id}`, id: user._id, usuario: user }); return;
   }
   if (request.method === "POST" && url.pathname === "/register") {
     if (users.some((item) => item.email === body.email)) { send(response, 409, { ok: false }); return; }
-    users.push({ _id: `user-${users.length + 1}`, nombre: body.nombre, email: body.email, role: body.role });
+    const user = { _id: `user-${randomUUID()}`, nombre: body.nombre, email: body.email, role: body.role };
+    users.push(user);
+    passwords.set(user._id, body.password);
     send(response, 201, { ok: true }); return;
   }
   if (request.method === "GET" && url.pathname === "/motivos") { send(response, 200, ["Asesoría fiscal", "Contabilidad", "Administración"].map((motivos) => ({ motivos }))); return; }
@@ -75,12 +79,14 @@ const server = createServer(async (request, response) => {
   if (request.method === "DELETE" && parts[0] === "user") {
     const index = users.findIndex((item) => item._id === parts[1]);
     if (index < 0) { send(response, 404, { ok: false }); return; }
+    passwords.delete(users[index]._id);
     users.splice(index, 1); send(response, 200, { ok: true }); return;
   }
   if (request.method === "PUT" && parts[0] === "user" && parts[1] === "edit") {
     const user = users.find((item) => item._id === parts[2]);
     if (!user) { send(response, 404, { ok: false }); return; }
     Object.assign(user, { nombre: body.nombre, email: body.email, role: body.role });
+    if (typeof body.password === "string" && body.password) passwords.set(user._id, body.password);
     send(response, 200, { ok: true }); return;
   }
   if (request.method === "POST" && url.pathname === "/perfil") { send(response, 201, { ok: true }); return; }

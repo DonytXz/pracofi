@@ -27,7 +27,7 @@ export function AppRoutes() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/registerAcoutnMan"><Redirect to="/register?role=CONTADOR" /></Route>
-      <ProtectedRoute exact path="/scheduleBooking"><ScheduleBooking /></ProtectedRoute>
+      <ProtectedRoute exact path="/scheduleBooking" roles={["USER", "ADMIN"]}><ScheduleBooking /></ProtectedRoute>
       <ProtectedRoute exact path="/bookings" roles={["USER"]}><Bookings /></ProtectedRoute>
       <ProtectedRoute exact path="/bookingDetails/:id" roles={["USER"]}><BookingDetail /></ProtectedRoute>
       <ProtectedRoute exact path="/profile"><Profile /></ProtectedRoute>
