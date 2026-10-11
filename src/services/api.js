@@ -1,4 +1,5 @@
 import axios from "axios";
+import { clearSession, readSession } from "../shared/session";
 
 // Base API URL from environment variable, falling back to Vercel production API
 const rawUrl =
@@ -12,19 +13,24 @@ export const BASE_API_URL = rawUrl.replace(/\/+$/, "");
 
 const api = axios.create({
   baseURL: BASE_API_URL,
+  timeout: 20000,
 });
 
 // Interceptor to attach auth token
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const token = readSession()?.token;
   if (token) {
-    try {
-      config.headers.token = JSON.parse(token);
-    } catch {
-      config.headers.token = token;
-    }
+    config.headers.token = token;
   }
   return config;
+});
+
+api.interceptors.response.use((response) => response, (error) => {
+  // A delayed response from an old session must not sign out a new session.
+  const token = readSession()?.token;
+  if (error.response?.status === 401 && token &&
+      error.config?.headers?.token === token && error.config?.url !== "/login") clearSession("expired");
+  return Promise.reject(error);
 });
 
 export default api;

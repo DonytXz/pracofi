@@ -1,49 +1,36 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import Hero from "../../assets/img/figure1.png";
-import Logo from "../../assets/img/logoOnly.png";
-import Header from "../global/Header";
 
-const Home = () => {
+export default function Home() {
   return (
-    <>
-      <div className="lg:h-screen flex flex-col">
-        <Header />
-        <div className="flex flex-col lg:flex-row w-10/12 mx-auto h-1/2 my-4 lg:my-auto">
-          <div className="h-full m-auto">
-            <img
-              className="h-full"
-              src={Hero}
-              alt=""
-              srcSet=""
-            />
-          </div>
-          <div className="flex flex-col w-10/12 mt-4 lg:my-auto lg:w-1/2 justify-center mx-auto">
-            <div className="flex flex-row mx-auto mb-6">
-              <h1 className="text-center text-4xl font-bold text-blue-regular mr-6">
-                ¡Bienvenido a Pracofi!
-              </h1>
-              <img className="" src={Logo} alt="" srcSet="" />
+    <section className="landing-hero" aria-labelledby="hero-title">
+      <div className="hero-content">
+        <p className="eyebrow"><span className="eyebrow-dot" /> ASESORÍA CONTABLE Y FISCAL</p>
+        <h1 id="hero-title">El siguiente paso<br />{" "}para tus <span>finanzas.</span></h1>
+        <p className="hero-description">Dale espacio a tus preguntas. Agenda una cita con Pracofi y encuentra orientación para tus necesidades contables, fiscales y administrativas.</p>
+        <div className="actions hero-actions">
+          <Link to="/scheduleBooking" className="btn btn-primary">Agendar una cita <span aria-hidden="true">↗</span></Link>
+          <Link to="/#services" className="btn btn-secondary">Conocer los servicios</Link>
+        </div>
+        <div className="hero-signin"><span className="small-line" aria-hidden="true" /><span>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></span></div>
+      </div>
+      <div className="hero-aside">
+        <div className="appointment-illustration" aria-hidden="true">
+          <div className="illustration-top"><span className="illustration-symbol">P.</span><span>TU ESPACIO PRACOFI</span><span className="illustration-dots">•••</span></div>
+          <div className="illustration-body">
+            <span className="illustration-caption">EMPIEZA CON UNA CONVERSACIÓN</span>
+            <p>Tu próxima cita,<br />{" "}<strong>en un solo lugar.</strong></p>
+            <div className="illustration-calendar">
+              <div className="calendar-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="7" width="22" height="21" rx="3" /><path d="M10 4v7M22 4v7M5 14h22M11 20h4M18 20h3M11 24h4" /></svg></div>
+              <div><strong>Organiza tu consulta</strong><span>Tema, fecha y hora</span></div>
+              <span className="illustration-arrow">↗</span>
             </div>
-
-            <span className="text-center uppercase text-2xl text-blue-regular mb-2">
-              Asesoria contable y fiscal
-              </span>
-            <p className="w-10/12 mx-auto text-lg text-blue-regular mb-4">
-              ¿Como podemos ayudarte? en Pracofi nos preocupamos por ti. ¡Agenda
-              tu cita y comencemos ahora!
-            </p>
-            <Link
-              to="/scheduleBooking"
-              className="w-3/4 mx-auto uppercase p-6 bg-black hover:bg-blue-dark text-white text-center"
-            >
-              Agendar una cita
-            </Link>
+            <div className="illustration-progress"><i /><i /><i /></div>
+            <span className="illustration-note">Un paso a la vez. Con claridad.</span>
           </div>
         </div>
+        <p className="hero-aside-note"><span aria-hidden="true">↳</span> Más orden para lo que sigue.</p>
       </div>
-    </>
+      <div className="hero-bottom"><span>CONTABILIDAD</span><span>ASESORÍA FISCAL</span><span>ADMINISTRACIÓN</span><span className="hero-bottom-end">Conversemos sobre lo que necesitas <span aria-hidden="true">↓</span></span></div>
+    </section>
   );
-};
-
-export default Home;
+}

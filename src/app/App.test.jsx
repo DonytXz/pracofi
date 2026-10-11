@@ -9,7 +9,7 @@ describe("App", () => {
     render(<App />);
 
     expect(
-      screen.getByRole("heading", { name: /bienvenido a pracofi/i })
+      screen.getByRole("heading", { level: 1, name: /el siguiente paso.*para tus finanzas/i })
     ).toBeInTheDocument();
   });
 });

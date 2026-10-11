@@ -1,34 +1,20 @@
 import api from "./api";
+import { clearSession, readSession, saveSession } from "../shared/session";
 
-export const login = (email, password) => {
-  return api
-    .post("/login", {
-      email,
-      password,
-    })
-    .then((res) => {
-      // console.log(res);
-      const name = res.data.usuario.nombre;
-      const role = res.data.usuario.role;
-      const id = res.data.id;
-      // console.log(res.data.token);
-      if (res.data.token) {
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        localStorage.setItem("name", JSON.stringify(name));
-        localStorage.setItem("role", JSON.stringify(role));
-        localStorage.setItem("id", JSON.stringify(id));
-      }
-      return res.data;
-    })
-    .catch((error) => {
-      // console.log(error);
-      return false;
-    });
-};
-
-export const logout = () => {
-  localStorage.removeItem("token");
-};
-export const getToken = () => {
-  return JSON.parse(localStorage.getItem("token"));
-};
+export async function login(email, password) {
+  try {
+    const response = await api.post("/login", { email, password });
+    if (response.data?.ok === false) {
+      const error = new Error("Login rejected");
+      error.userMessage = "El correo o la contraseña no son correctos.";
+      throw error;
+    }
+    saveSession(response.data);
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 401) error.userMessage = "El correo o la contraseña no son correctos.";
+    throw error;
+  }
+}
+export const logout = clearSession;
+export const getToken = () => readSession()?.token ?? null;

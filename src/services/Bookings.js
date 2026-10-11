@@ -61,10 +61,6 @@ export const RegisterBooking = (
       hora,
       area,
       rfc,
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
     });
 };
 
@@ -83,10 +79,6 @@ export const RegisterBookingUser = (
       hora,
       area,
       rfc,
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
     });
 };
 
@@ -107,10 +99,6 @@ export const UpdateBooking = (
       hora,
       area,
       rfc,
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
     });
 };
 

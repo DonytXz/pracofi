@@ -22,9 +22,5 @@ export const RegisterProfileData = (
       telefono,
       ocupacion,
       usuario,
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
     });
 };

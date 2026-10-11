@@ -1,86 +1,63 @@
-import React from "react";
-import { useForm, ValidationError } from '@formspree/react';
-const Contact = () => {
-  function ContactForm() {
-    const [state, handleSubmit] = useForm("xknywojb");
-    if (state.succeeded) {
-        return <p>Thanks for joining!</p>;
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+export default function Contact() {
+  const [status, setStatus] = useState("idle");
+  const pending = useRef(false);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (pending.current) return;
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    pending.current = true;
+    setStatus("pending");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xknywojb", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error("Contact request failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    } finally {
+      pending.current = false;
     }
   }
-  return (
-    <section id="contact" className="w-full mx-auto blue pt-12 bg-black">
-      <div className="w-full h-full flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2  lg:relative p-10">
-          <div className="w-full lg:w-2/3 lg:relative lg:float-right ">
-            <h2 className="my-2   font-semibold w-full text-2xl lg:text-5xl text-white ">
-            En PRACOFI nos interesa lo que piensa
-            </h2>
-            <p className="text-white   font-normal">
-              <strong className="font-semibold " > Contacte con nosotros ahora mismo llenando este sencillo formulario </strong>
-            </p>
-          </div>
-        </div>
-        <div className="w-full lg:w-1/2 h-full flex lg:p-10 ">
 
-          <form
-            action="https://formspree.io/f/xknywojb"
-            method="POST"
-            className="w-full h-full float-left"
-          >
-            <div className="w-full lg:w-2/3 h-full p-10 bg-white flex flex-col self-start">
-              <label className="mt-4 font-gray-form" htmlFor="">
-                Nombre
-              </label>
-              <input
-                className="font-gray-form border-2 rounded bg-gray-200 px-4 py-2"
-                placeholder="Escriba aqui su nombre"
-                type="text"
-                name="Nombre"
-                id="Nombre"
-                required
-              />
-              
-              <label className="font-gray-form mt-4" htmlFor="email">
-              Correo electronico
-              </label>
-              <input
-               className="font-gray-form border-2 rounded bg-gray-200 px-4 py-2"
-               placeholder="Escriba aqui su correo"
-                id="email"
-              type="email" 
-                name="email"
-                required
-               />
-               <ValidationError 
-              prefix="Email" 
-              field="email"
-              errors={"001".errors}
-         />
-              <label className="font-gray-form mt-4" htmlFor="">
-                Teléfono
-              </label>
-              <input
-                className=" font-gray-formborder-2 rounded bg-gray-200 px-4 py-2"
-                placeholder="Escriba aqui"
-                type="tel"
-                name="telefono"
-                id="telefono"
-required
-              />
-          
-              <button
-                type="submit"
-                onclick="submitted()"
-                className="hover:opacity-50 mt-6 bg-pinkCustom w-full lg:w-2/4 text-black  bg-aqua p-2 self-end border_red border-2 rounded"
-              >
-                ENVIAR 
-              </button>
-            </div>
+  return (
+    <section id="contact" className="contact-section" aria-labelledby="contact-title">
+      <div className="contact-copy">
+        <p className="eyebrow">HABLEMOS</p>
+        <h2 id="contact-title">El primer paso<br />{" "}es una <span>conversación.</span></h2>
+        <p>¿Tienes alguna pregunta sobre nuestros servicios? Déjanos tus datos de contacto.</p>
+        <div className="contact-note"><span aria-hidden="true">↗</span><p>Si ya sabes qué necesitas, puedes <Link to="/scheduleBooking">agendar una cita</Link> desde tu cuenta.</p></div>
+      </div>
+      <div className="contact-form-card">
+        {status === "success" ? (
+          <div className="contact-success">
+            <span className="success-icon" aria-hidden="true">✓</span>
+            <h3>Gracias por escribirnos.</h3>
+            <p role="status">Recibimos tus datos de contacto correctamente.</p>
+            <button type="button" className="btn btn-secondary" onClick={() => setStatus("idle")}>Enviar otra solicitud</button>
+          </div>
+        ) : (
+          <form className="stack" onSubmit={handleSubmit} aria-busy={status === "pending"}>
+            <div><h3>Deja tus datos</h3><p className="muted">Todos los campos son obligatorios.</p></div>
+            {status === "error" ? <p role="alert" className="alert alert-error">No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.</p> : null}
+            <div className="field"><label htmlFor="contact-name">Nombre</label><input id="contact-name" name="Nombre" autoComplete="name" placeholder="Tu nombre completo" required disabled={status === "pending"} className="input" /></div>
+            <div className="field"><label htmlFor="contact-email">Correo electrónico</label><input id="contact-email" name="email" type="email" autoComplete="email" placeholder="nombre@correo.com" required disabled={status === "pending"} className="input" /></div>
+            <div className="field"><label htmlFor="contact-phone">Teléfono</label><input id="contact-phone" name="telefono" type="tel" autoComplete="tel" placeholder="Tu número de contacto" required disabled={status === "pending"} className="input" /></div>
+            <button className="btn btn-primary" type="submit" disabled={status === "pending"}>{status === "pending" ? "Enviando…" : "Enviar mis datos"}<span aria-hidden="true">↗</span></button>
+            <p className="form-note">Este formulario envía una solicitud de contacto; no agenda una cita.</p>
+            <span className="sr-only" role="status">{status === "pending" ? "Enviando tus datos de contacto." : ""}</span>
           </form>
-        </div>
+        )}
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
