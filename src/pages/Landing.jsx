@@ -1,34 +1,17 @@
-import React, { useEffect } from "react";
-import { Home, About, Contact } from "../components/landing";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Home from "../components/landing/Home";
+import About from "../components/landing/About";
+import Contact from "../components/landing/Contact";
+import AppShell from "../components/global/AppShell";
 
-const Landing = () => {
-  let location = useLocation();
+export default function Landing() {
+  const { hash } = useLocation();
 
-  //Using hash in location to scrol like an interal url
   useEffect(() => {
-    const hash = location.hash;
-    // Check if there is a hash and if an element with that id exists
-    const el = hash && document.getElementById(hash.substr(1));
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [location.hash]);
+    const target = hash && document.getElementById(hash.slice(1));
+    if (target?.scrollIntoView) target.scrollIntoView();
+  }, [hash]);
 
-  return (
-    <>
-      <div className="bg-gray-100">
-        <Home />
-        <div className="bg-blue-regular" id="about">
-          <About />
-        </div>
-
-        <div id="contact">
-          <Contact />
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Landing;
+  return <AppShell><div className="landing-page"><Home /><About /><Contact /></div></AppShell>;
+}
