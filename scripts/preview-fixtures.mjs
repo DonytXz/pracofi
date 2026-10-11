@@ -42,6 +42,7 @@ const server = createServer(async (request, response) => {
     send(response, 200, { ok: true, token: `fixture-${user._id}`, id: user._id, usuario: user }); return;
   }
   if (request.method === "POST" && url.pathname === "/register") {
+    if (typeof body?.password !== "string" || !body.password) { send(response, 400, { ok: false }); return; }
     if (users.some((item) => item.email === body.email)) { send(response, 409, { ok: false }); return; }
     const user = { _id: `user-${randomUUID()}`, nombre: body.nombre, email: body.email, role: body.role };
     users.push(user);
