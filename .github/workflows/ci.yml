@@ -16,10 +16,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Diagnostic install
-        run: |
-          OUT=$(npm ci 2>&1 || true)
-          echo "::error title=NPM_CI_LOG::${OUT//$'\n'/'%0A'}"
       - run: npm ci
       - run: npm run lint
       - run: npm run test:run
