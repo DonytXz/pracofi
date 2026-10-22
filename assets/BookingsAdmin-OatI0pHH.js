@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DszzE2zX.js";import{t}from"./BookingWorkspace-CWOw9g69.js";var n=e();function r(){return(0,n.jsx)(t,{scope:`admin`})}export{r as default};
