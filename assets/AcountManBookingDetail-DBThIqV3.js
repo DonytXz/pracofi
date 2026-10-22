@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-jlbWQU8D.js";import{l as t,t as n}from"./react-router-CD8FpzEJ.js";import{t as r}from"./BookingEditor-BxfUAT0z.js";var i=e();function a(){let{id:e}=t();return e?(0,i.jsx)(r,{readOnly:!0}):(0,i.jsx)(n,{to:`/my-bookings-acountMan`})}export{a as default};
